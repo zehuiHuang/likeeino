@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"github.com/cloudwego/eino-ext/components/model/deepseek"
+	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2"
 	"github.com/coze-dev/cozeloop-go"
 	"github.com/joho/godotenv"
 	"likeeino/internal/logs"
@@ -10,7 +11,6 @@ import (
 	"os"
 
 	clc "github.com/cloudwego/eino-ext/callbacks/cozeloop"
-	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2"
 	"github.com/cloudwego/eino/callbacks"
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/components/tool/utils"
@@ -67,6 +67,8 @@ func main() {
 		updateTool,       // 使用 InferTool 方式
 		&ListTodoTool{},  // 使用结构体实现方式, 此处未实现底层逻辑
 		searchTool,
+		GetAnalyzeTool(),
+		GetSubTool(),
 	}
 
 	// 创建并配置 ChatModel
