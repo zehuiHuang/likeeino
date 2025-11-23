@@ -2,8 +2,11 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/cloudwego/eino-ext/components/model/deepseek"
 	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2"
+	"github.com/cloudwego/eino/components/model"
+	callbackHelpers "github.com/cloudwego/eino/utils/callbacks"
 	"github.com/coze-dev/cozeloop-go"
 	"github.com/joho/godotenv"
 	"likeeino/internal/logs"
@@ -48,6 +51,33 @@ func main() {
 	}
 	callbacks.AppendGlobalHandlers(handlers...)
 
+	//大模型回调函数
+	modelHandler := &callbackHelpers.ModelCallbackHandler{
+		OnEnd: func(ctx context.Context, info *callbacks.RunInfo, output *model.CallbackOutput) context.Context {
+			// 1. output.Result 类型是 string
+			fmt.Println("模型思考过程-------------------------")
+			fmt.Println("output.Message.Content:" + output.Message.Content)
+			fmt.Println("模型思考过程-------------------------")
+			return ctx
+		},
+	}
+	//工具回调函数
+	toolHandler := &callbackHelpers.ToolCallbackHandler{
+		OnStart: func(ctx context.Context, info *callbacks.RunInfo, input *tool.CallbackInput) context.Context {
+			fmt.Printf("开始执行工具，工具名:%s,参数: %s\n", info.Name, input.ArgumentsInJSON)
+			return ctx
+		},
+		OnEnd: func(ctx context.Context, info *callbacks.RunInfo, output *tool.CallbackOutput) context.Context {
+			fmt.Printf("工具执行完成，工具名:%s,结果: %s\n", info.Name, output.Response)
+			return ctx
+		},
+	}
+	//构建实际回调函数Handler
+	handler := callbackHelpers.NewHandlerHelper().
+		ChatModel(modelHandler).
+		Tool(toolHandler).
+		Handler()
+
 	updateTool, err := utils.InferTool("update_todo", "Update a todo item, eg: content,deadline...", UpdateTodoFunc)
 	if err != nil {
 		logs.Errorf("InferTool failed, err=%v", err)
@@ -67,8 +97,6 @@ func main() {
 		updateTool,       // 使用 InferTool 方式
 		&ListTodoTool{},  // 使用结构体实现方式, 此处未实现底层逻辑
 		searchTool,
-		GetAnalyzeTool(),
-		GetSubTool(),
 	}
 
 	// 创建并配置 ChatModel
@@ -102,6 +130,7 @@ func main() {
 		return
 	}
 
+	//工具使用,运行大模型调用外部工具完成特定任务
 	// 创建 tools 节点
 	todoToolsNode, err := compose.NewToolNode(ctx, &compose.ToolsNodeConfig{
 		Tools: todoTools,
@@ -111,6 +140,7 @@ func main() {
 		return
 	}
 
+	//在编排中使用
 	// 构建完整的处理链
 	chain := compose.NewChain[[]*schema.Message, []*schema.Message]()
 	chain.
@@ -130,13 +160,14 @@ func main() {
 			Role:    schema.User,
 			Content: "添加一个学习 Eino 的 TODO，同时搜索一下 cloudwego/eino 的仓库地址",
 		},
-	})
+	}, compose.WithCallbacks(handler))
 	if err != nil {
 		logs.Errorf("agent.Invoke failed, err=%v", err)
 		return
 	}
 
 	// 输出结果
+
 	for idx, msg := range resp {
 		logs.Infof("\n")
 		logs.Infof("message %d: %s: %s", idx, msg.Role, msg.Content)
