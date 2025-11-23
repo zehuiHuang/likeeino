@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	clc "github.com/cloudwego/eino-ext/callbacks/cozeloop"
 	"github.com/cloudwego/eino-ext/components/model/deepseek"
 	"github.com/cloudwego/eino/callbacks"
 	t "github.com/cloudwego/eino/components/tool"
@@ -12,6 +13,7 @@ import (
 	"github.com/cloudwego/eino/flow/agent"
 	"github.com/cloudwego/eino/flow/agent/react"
 	"github.com/cloudwego/eino/schema"
+	"github.com/coze-dev/cozeloop-go"
 	"github.com/joho/godotenv"
 	"io"
 	"likeeino/pkg/tool"
@@ -21,17 +23,28 @@ import (
 )
 
 func ReactAgent() {
-	// 加载 .env 文件
-	//if err := godotenv.Load(); err != nil {
-	//	log.Printf("Warning: Error loading .env file: %v\n", err)
-	//}
-
 	startTime := time.Now()
 	fmt.Printf("程序开始执行时间: %s\n", startTime.Format("2006-01-02 15:04:05.000"))
 
-	//arkAPIKey := "8e6766ee-7bdc-4f80-b678-3344fc0c3c08"
-	//arkModelName := "doubao-1-5-pro-32k-250115"
+	cozeloopApiToken := os.Getenv("COZELOOP_API_TOKEN")
+	cozeloopWorkspaceID := os.Getenv("COZELOOP_WORKSPACE_ID") // use cozeloop trace, from https://loop.coze.cn/open/docs/cozeloop/go-sdk#4a8c980e
+
 	ctx := context.Background()
+
+	var handlers []callbacks.Handler
+	if cozeloopApiToken != "" && cozeloopWorkspaceID != "" {
+		client, err := cozeloop.NewClient(
+			cozeloop.WithAPIToken(cozeloopApiToken),
+			cozeloop.WithWorkspaceID(cozeloopWorkspaceID),
+		)
+		if err != nil {
+			panic(err)
+		}
+		defer client.Close(ctx)
+		handlers = append(handlers, clc.NewLoopHandler(client))
+	}
+	callbacks.AppendGlobalHandlers(handlers...)
+
 	arkModel, err := deepseek.NewChatModel(ctx, &deepseek.ChatModelConfig{
 		APIKey: os.Getenv("OPENAI_API_KEY"),
 		Model:  os.Getenv("OPENAI_MODEL_NAME"),
@@ -120,7 +133,7 @@ func ReactAgent() {
 			return
 		}
 		finalContent += msg.Content
-		fmt.Printf("%v", msg.Content)
+		//fmt.Printf("%v", msg.Content)
 	}
 
 	fmt.Printf("\n\n===== final answer =====\n\n")
@@ -140,21 +153,21 @@ type loggerCallback struct {
 }
 
 func (cb *loggerCallback) OnStart(ctx context.Context, info *callbacks.RunInfo, input callbacks.CallbackInput) context.Context {
-	fmt.Println("==================")
+	fmt.Println("==================" + info.Name)
 	inputStr, _ := json.MarshalIndent(input, "", "  ") // nolint: byted_s_returned_err_check
 	fmt.Printf("[OnStart] %s\n", string(inputStr))
 	return ctx
 }
 
 func (cb *loggerCallback) OnEnd(ctx context.Context, info *callbacks.RunInfo, output callbacks.CallbackOutput) context.Context {
-	fmt.Println("=========[OnEnd]=========")
+	fmt.Println("=========[OnEnd]=========" + info.Name)
 	outputStr, _ := json.MarshalIndent(output, "", "  ") // nolint: byted_s_returned_err_check
 	fmt.Println(string(outputStr))
 	return ctx
 }
 
 func (cb *loggerCallback) OnError(ctx context.Context, info *callbacks.RunInfo, err error) context.Context {
-	fmt.Println("=========[OnError]=========")
+	fmt.Println("=========[OnError]=========" + info.Name)
 	fmt.Println(err)
 	return ctx
 }
