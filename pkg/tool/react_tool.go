@@ -89,7 +89,6 @@ func (t *SubTool) InvokableRun(ctx context.Context, argumentsInJSON string, opts
 	if err != nil {
 		return "", err
 	}
-	fmt.Println("计算减法---------------------------" + fmt.Sprintf("%d", p.A-p.B))
 	return fmt.Sprintf("%d", p.A-p.B), nil
 }
 
@@ -124,7 +123,6 @@ func (a *AnalyzeTool) InvokableRun(ctx context.Context, argumentsInJSON string, 
 	if err != nil {
 		return "", err
 	}
-	fmt.Println("大模型整体分析---------------------------")
 	//调用模型
 	arkModel, err := deepseek.NewChatModel(ctx, &deepseek.ChatModelConfig{
 		APIKey: os.Getenv("OPENAI_API_KEY"),
