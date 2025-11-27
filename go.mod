@@ -4,6 +4,7 @@ go 1.25.1
 
 require (
 	github.com/cloudwego/eino v0.7.0
+	github.com/cloudwego/eino-examples v0.0.0-20251120123305-3ce08012fd39
 	github.com/cloudwego/eino-ext/callbacks/cozeloop v0.1.6
 	github.com/cloudwego/eino-ext/components/model/ark v0.1.47
 	github.com/cloudwego/eino-ext/components/model/deepseek v0.0.0-20251121095553-9c4349cc3e46
@@ -12,6 +13,7 @@ require (
 	github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2 v2.0.0-20251117090452-bd6375a0b3cf
 	github.com/coze-dev/cozeloop-go v0.1.11
 	github.com/joho/godotenv v1.5.1
+	github.com/volcengine/volcengine-go-sdk v1.1.49
 )
 
 require (
@@ -23,6 +25,7 @@ require (
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.14.2 // indirect
 	github.com/bytedance/sonic/loader v0.4.0 // indirect
+	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/cloudwego/eino-ext/libs/acl/openai v0.1.2 // indirect
 	github.com/cohesion-org/deepseek-go v1.3.2 // indirect
@@ -39,7 +42,6 @@ require (
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect
-	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/meguminnnnnnnnn/go-openai v0.1.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
@@ -58,8 +60,7 @@ require (
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
-	github.com/volcengine/volc-sdk-golang v1.0.23 // indirect
-	github.com/volcengine/volcengine-go-sdk v1.1.49 // indirect
+	github.com/volcengine/volc-sdk-golang v1.0.199 // indirect
 	github.com/wk8/go-ordered-map/v2 v2.1.8 // indirect
 	github.com/yargevad/filepathx v1.0.0 // indirect
 	golang.org/x/arch v0.19.0 // indirect

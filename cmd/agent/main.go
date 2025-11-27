@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "likeeino/assistant/agent"
-	"likeeino/assistant/multi2"
+	_ "likeeino/agent/agent"
+	"likeeino/agent/multiagent/supervisor"
 )
 
 func main() {
@@ -10,5 +10,6 @@ func main() {
 	//agent.ReactAgent()
 	//agent.ReactAgent2()
 	//multi.MultiAgent()
-	multi2.MultiAgent()
+	//multi2.MultiAgent()
+	supervisor.Agent()
 }
