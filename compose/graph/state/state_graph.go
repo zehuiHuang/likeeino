@@ -3,8 +3,10 @@ package main
 import (
 	"context"
 	"errors"
+	"github.com/joho/godotenv"
 	"io"
 	"likeeino/internal/logs"
+	"log"
 	"os"
 	"runtime/debug"
 	"strings"
@@ -52,7 +54,7 @@ func main() {
 	}
 	//创建graph,并使用WithGenLocalState参数, 使其在不通节点之间共享状态机
 	sg := compose.NewGraph[string, string](compose.WithGenLocalState(gen))
-	//添加自定义逻辑节点
+	//创建自定义逻辑节点
 	l1 := compose.InvokableLambda(func(ctx context.Context, in string) (out string, err error) {
 		return "InvokableLambda: " + in, nil
 	})
@@ -66,7 +68,7 @@ func main() {
 		state.ms = append(state.ms, out)
 		return out, nil
 	}
-	//将入和出的函数挂在到该自定义的节点上,在执行到该节点时,入和出函数会被执行,对全局状态机进行设置
+	//将创建自定义逻辑节点加入的graph,并且将入和出的函数挂在到该自定义的节点上,在执行到该节点时,入和出函数会被执行,对全局状态机进行设置
 	_ = sg.AddLambdaNode(nodeOfL1, l1,
 		compose.WithStatePreHandler(l1StateToInput), compose.WithStatePostHandler(l1StateToOutput))
 	//自定义流式数据生成,将数据按照空格分割,并传入到下一个节点,同时定义了输出类型为*schema.StreamReader[string]
@@ -207,4 +209,11 @@ func main() {
 		logs.Infof("%v", chunk)
 	}
 	stream.Close()
+}
+
+func init() {
+	// 加载 .env 文件
+	if err := godotenv.Load(); err != nil {
+		log.Printf("Warning: Error loading .env file: %v\n", err)
+	}
 }
