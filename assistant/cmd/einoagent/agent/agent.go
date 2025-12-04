@@ -81,7 +81,7 @@ func Init() error {
 
 			callbackHandlers = append(callbackHandlers, cbh)
 		}
-
+		//应该也是用来监控的Trace
 		if os.Getenv("LANGFUSE_PUBLIC_KEY") != "" && os.Getenv("LANGFUSE_SECRET_KEY") != "" {
 			fmt.Println("[eino agent] INFO: use langfuse as callback, watch at: https://cloud.langfuse.com")
 			cbh, _ := langfuse.NewLangfuseHandler(&langfuse.Config{
@@ -97,24 +97,25 @@ func Init() error {
 			callbackHandlers = append(callbackHandlers, cbh)
 		}
 		if len(callbackHandlers) > 0 {
-			callbacks.InitCallbackHandlers(callbackHandlers)
+			callbacks.AppendGlobalHandlers(callbackHandlers...)
 		}
 	})
 	return err
 }
 
 func RunAgent(ctx context.Context, id string, msg string) (*schema.StreamReader[*schema.Message], error) {
-
+	//创建graph的agent
 	runner, err := einoagent.BuildEinoAgent(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to build agent graph: %w", err)
 	}
-
+	//数据缓存,存储每个会话的 多条记录
 	conversation := memory.GetConversation(id, true)
 
 	userMessage := &einoagent.UserMessage{
-		ID:      id,
-		Query:   msg,
+		ID:    id,
+		Query: msg,
+		//获取一定量的历史对话记录
 		History: conversation.GetMessages(),
 	}
 	if os.Getenv("APMPLUS_APP_KEY") != "" {

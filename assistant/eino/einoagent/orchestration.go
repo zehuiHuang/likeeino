@@ -31,25 +31,34 @@ func BuildEinoAgent(ctx context.Context) (r compose.Runnable[*UserMessage, *sche
 		RedisRetriever = "RedisRetriever"
 		InputToHistory = "InputToHistory"
 	)
+	//创建graph
 	g := compose.NewGraph[*UserMessage, *schema.Message]()
+	//添加自定义逻辑节点
 	_ = g.AddLambdaNode(InputToQuery, compose.InvokableLambdaWithOption(newLambda), compose.WithNodeName("UserMessageToQuery"))
 	chatTemplateKeyOfChatTemplate, err := newChatTemplate(ctx)
 	if err != nil {
 		return nil, err
 	}
-
+	//添加提示词模版
 	_ = g.AddChatTemplateNode(ChatTemplate, chatTemplateKeyOfChatTemplate)
+	//创建一个react agent,包含了模型、工具,创建一个以ReactAgent作为一个自定义逻辑节点
 	reactAgentKeyOfLambda, err := newLambda1(ctx)
 	if err != nil {
 		return nil, err
 	}
+	//将自定义的react agent 逻辑节点加入graph
 	_ = g.AddLambdaNode(ReactAgent, reactAgentKeyOfLambda, compose.WithNodeName("ReAct Agent"))
+	//自定义redis向量库节点
 	redisRetrieverKeyOfRetriever, err := newRetriever(ctx)
 	if err != nil {
 		return nil, err
 	}
+	//将redis向量库节点加入到graph
 	_ = g.AddRetrieverNode(RedisRetriever, redisRetrieverKeyOfRetriever, compose.WithOutputKey("documents"))
 	_ = g.AddLambdaNode(InputToHistory, compose.InvokableLambdaWithOption(newLambda2), compose.WithNodeName("UserMessageToVariables"))
+	//两条边并行执行
+	//compose.STAR  -》InputToQuery -》 RedisRetriever -》 ChatTemplate -》 ReactAgent -》 compose.END
+	//compose.START -》 InputToHistory -》 ChatTemplate -》 ReactAgent -》 compose.END
 	_ = g.AddEdge(compose.START, InputToQuery)
 	_ = g.AddEdge(compose.START, InputToHistory)
 	_ = g.AddEdge(ReactAgent, compose.END)
@@ -57,6 +66,7 @@ func BuildEinoAgent(ctx context.Context) (r compose.Runnable[*UserMessage, *sche
 	_ = g.AddEdge(RedisRetriever, ChatTemplate)
 	_ = g.AddEdge(InputToHistory, ChatTemplate)
 	_ = g.AddEdge(ChatTemplate, ReactAgent)
+	//编译
 	r, err = g.Compile(ctx, compose.WithGraphName("EinoAgent"), compose.WithNodeTriggerMode(compose.AllPredecessor))
 	if err != nil {
 		return nil, err

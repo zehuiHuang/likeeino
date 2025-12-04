@@ -162,7 +162,7 @@ func (c *Conversation) GetFullMessages() []*schema.Message {
 func (c *Conversation) GetMessages() []*schema.Message {
 	c.mu.Lock()
 	defer c.mu.Unlock()
-
+	//上下文超过最大窗口,则进行自动截取
 	if len(c.Messages) > c.maxWindowSize {
 		return c.Messages[len(c.Messages)-c.maxWindowSize:]
 	}
