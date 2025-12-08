@@ -1,0 +1,480 @@
+Java Web Start 1.6.0_45
+使用 JRE 版本 1.6.0_45-b06 Java HotSpot(TM) Client VM
+用户主目录 = C:\Users\Administrator
+----------------------------------------------------
+c:   清除控制台窗口
+f:   终结在结束队列上的对象
+g:   垃圾收集
+h:   显示此帮助消息
+m:   打印内存使用
+o:   触发日志记录
+p:   重新载入代理配置
+q:   隐藏控制台
+r:   重新载入策略配置
+s:   转储系统和部署属性
+t:   转储线程列表
+v:   转储线程堆栈
+0-5: 设置跟踪级别为<n>
+----------------------------------------------------
+2025-12-8 14:37:41 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
+警告:   Resource META-INF/config/message_exds_zh_CN.properties Not Found.
+2025-12-8 14:37:41 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
+警告:   Resource META-INF/config/message_exds_zh.properties Not Found.
+2025-12-8 14:37:41 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
+警告:   Resource META-INF/config/message_exds.properties Not Found.
+12-08 14:37:42.267 () DEBUG -->[system.adapter] 通讯配置文件采用[客户本地存储]的信息...
+12-08 14:37:42.283 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysConfig.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/SysConfig.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/SysConfig.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/SysConfig.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SysConfig.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SysConfig.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SysConfig.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SysConfig.json
+DJH-ClientResourceService-org.apache.http.conn.EofSensorInputStream@1980c26
+12-08 14:37:42.345 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/rootStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/rootStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/rootStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/rootStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/rootStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/rootStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/rootStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/rootStage_zh.lgdict
+12-08 14:37:42.361 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/security/innersecurity.xml]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/security/innersecurity.xml
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/security/innersecurity.xml
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/security/innersecurity.xml
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/security/innersecurity.xml
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/security/innersecurity.xml
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/security/innersecurity.xml
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/security/innersecurity.xml
+12-08 14:37:42.439 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/security/outtersecurity.xml]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/security/outtersecurity.xml
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/security/outtersecurity.xml
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/security/outtersecurity.xml
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/security/outtersecurity.xml
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/security/outtersecurity.xml
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/security/outtersecurity.xml
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/security/outtersecurity.xml
+12-08 14:37:42.439 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/keyboard/functiondef.xml]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/keyboard/functiondef.xml
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/keyboard/functiondef.xml
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/keyboard/functiondef.xml
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/keyboard/functiondef.xml
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/keyboard/functiondef.xml
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/keyboard/functiondef.xml
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/keyboard/functiondef.xml
+12-08 14:37:42.470 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/keyboard/hotkeydef.xml]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/keyboard/hotkeydef.xml
+12-08 14:37:42.486 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SoftKeyboardConfiguration.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
+12-08 14:37:42.486 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysVersion.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/SysVersion.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/SysVersion.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/SysVersion.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SysVersion.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SysVersion.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SysVersion.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SysVersion.json
+12-08 14:37:42.606 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysConfigSecurity.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/SysConfigSecurity.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/SysConfigSecurity.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/SysConfigSecurity.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SysConfigSecurity.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SysConfigSecurity.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SysConfigSecurity.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SysConfigSecurity.json
+======APPKEY_SWITCH=======OFF==SSL_SWITCH==null===SSL_PROXY_IP===null==SSL_PROXY_PORT==null
+12-08 14:37:42.652 (com.dcfs.teller.im.listener.bus.IIMBusListener:57) DEBUG -->即时消息的监听器收到指令，开始进行处理.
+12-08 14:37:42.684 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/Clientplugin_index.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/Clientplugin_index.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/Clientplugin_index.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/Clientplugin_index.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/Clientplugin_index.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/Clientplugin_index.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/Clientplugin_index.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/Clientplugin_index.json
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/Clientplugin_index.json]
+12-08 14:37:42.699 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/Clientplugin.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/Clientplugin.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/Clientplugin.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/Clientplugin.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/Clientplugin.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/Clientplugin.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/Clientplugin.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/Clientplugin.json
+12-08 14:37:43.012 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/PassowrdRuleConfig.json]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/PassowrdRuleConfig.json
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/PassowrdRuleConfig.json
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/PassowrdRuleConfig.json
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/PassowrdRuleConfig.json
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/PassowrdRuleConfig.json
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/PassowrdRuleConfig.json
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/PassowrdRuleConfig.json
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.UidlCommunicationImpl:91) DEBUG -->[system.adapter]数据走UIDL数据通信通道
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:321) DEBUG -->[system.adapter]:走GZIP压缩通道[http://172.16.36.98:12301/server.do]...
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:323) DEBUG -->[system.adapter]:客户端向服务端发送的数据为[{"HEAD":{"CMD_ID":"454519143743090","PATH":"init","LANGUAGE":"zh","CREATETIME":"14:37:43.090","ID":"init","STAGE_ID":"rootStage","EVENTTYPE":"UIDL_EVENT","SCENE_ID":"init","CLIENT_ID":"0CDA411D839B4298"},"BODY":{"UIDLID":"index"}}{"SYS_LOGINENTRY_NAME":index}]...
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/tellerStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/tellerStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/tellerStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/tellerStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/tellerStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/tellerStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/tellerStage_zh.lgdict
+12-08 14:37:43.106 (com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl:178) ERROR -->通讯适配器发生异常:向服务器发送指令请求时，服务端返回失败信息:顺序：[0]错误的类：[com.dcfs.teller.client.adapterImpl.AbstractClientCommunication]
+错误的行号：[438]
+顺序：[1]错误的类：[com.dcfs.teller.client.adapterImpl.UidlCommunicationImpl]
+错误的行号：[102]
+顺序：[2]错误的类：[com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl]
+错误的行号：[270]
+顺序：[3]错误的类：[com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl]
+错误的行号：[247]
+顺序：[4]错误的类：[com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl]
+错误的行号：[169]
+顺序：[5]错误的类：[com.dcfs.teller.client.bus.impl.QueueImpl$ListenerTask]
+错误的行号：[435]
+顺序：[6]错误的类：[java.util.concurrent.ThreadPoolExecutor$Worker]
+错误的行号：[-1]
+顺序：[7]错误的类：[java.util.concurrent.ThreadPoolExecutor$Worker]
+错误的行号：[-1]
+顺序：[8]错误的类：[java.lang.Thread]
+错误的行号：[-1]
+
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/tellerStage_zh.lgdict
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/tellerStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
+12-08 14:37:43.121 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/integrateStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/integrateStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/integrateStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/integrateStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/integrateStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/integrateStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/integrateStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/integrateStage_zh.lgdict
+12-08 14:37:43.121 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/integrateStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/integrateStage_exds_zh.lgdict]
+12-08 14:37:43.121 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/nativeAppStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
+12-08 14:37:43.137 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict]
+12-08 14:37:43.137 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/monitorStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/monitorStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/monitorStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/monitorStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/monitorStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/monitorStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/monitorStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/monitorStage_zh.lgdict
+12-08 14:37:43.137 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/monitorStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/monitorStage_exds_zh.lgdict]
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/highTellerStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/highTellerStage_zh.lgdict
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict]
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/consoleStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/consoleStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/consoleStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/consoleStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/consoleStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/consoleStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/consoleStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/consoleStage_zh.lgdict
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/consoleStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/consoleStage_exds_zh.lgdict]
+12-08 14:37:43.168 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
+12-08 14:37:43.168 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict]
+12-08 14:37:43.184 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/authStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/authStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/authStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/authStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/authStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/authStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/authStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/authStage_zh.lgdict
+12-08 14:37:43.184 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/authStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/authStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/authStage_exds_zh.lgdict]
+12-08 14:37:43.199 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/paperlessStage_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/paperlessStage_zh.lgdict
+12-08 14:37:43.199 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict]
+DJH-requestConfig-isGzip()1
+DJH-sendGzipMessageII-message=
+DJH-sendGzipMessageII-http.proxyHost=null
+DJH-sendGzipMessageII-http.proxyPort=null
+DJH-sendGzipMessageII-address1=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
+proxyEnv:null
+DJH-sendMessageII-未配置代理，使用直连
+DJH-sendGzipMessageII-address2=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
+DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
