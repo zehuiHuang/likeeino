@@ -18,13 +18,14 @@ package einoagent
 
 import (
 	"context"
-
-	"github.com/cloudwego/eino-examples/quickstart/eino_assistant/pkg/tool/einotool"
-	"github.com/cloudwego/eino-examples/quickstart/eino_assistant/pkg/tool/gitclone"
-	"github.com/cloudwego/eino-examples/quickstart/eino_assistant/pkg/tool/open"
-	"github.com/cloudwego/eino-examples/quickstart/eino_assistant/pkg/tool/task"
 	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2"
 	"github.com/cloudwego/eino/components/tool"
+	"likeeino/pkg/tool/einotool"
+	"likeeino/pkg/tool/gitclone"
+	"likeeino/pkg/tool/open"
+	"likeeino/pkg/tool/task"
+	"net/http"
+	"time"
 )
 
 func GetTools(ctx context.Context) ([]tool.BaseTool, error) {
@@ -64,6 +65,20 @@ func GetTools(ctx context.Context) ([]tool.BaseTool, error) {
 
 func defaultDDGSearchConfig(ctx context.Context) (*duckduckgo.Config, error) {
 	config := &duckduckgo.Config{}
+
+	// 创建自定义的 Transport，设置代理
+	transport := &http.Transport{
+		Proxy: http.ProxyFromEnvironment,
+	}
+
+	// 创建自定义的 HTTP Client
+	httpClient := &http.Client{
+		Transport: transport,
+		Timeout:   30 * time.Second, // 设置超时时间
+	}
+
+	// 将自定义的 HTTP Client 赋值给 Config
+	config.HTTPClient = httpClient
 	return config, nil
 }
 

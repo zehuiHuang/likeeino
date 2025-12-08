@@ -19,6 +19,9 @@ import (
 	"github.com/coze-dev/cozeloop-go"
 )
 
+/*
+* 设置有分支节点,当发现
+ */
 func main() {
 	openAIBaseURL := os.Getenv("OPENAI_BASE_URL")
 	openAIAPIKey := os.Getenv("OPENAI_API_KEY")
@@ -88,7 +91,7 @@ func main() {
 	if err != nil {
 		logs.Fatalf("Get ToolInfo failed, err=%v", err)
 	}
-	//将方法绑定到模型上
+	//将工具方法绑定到模型上
 	err = chatModel.BindTools([]*schema.ToolInfo{info})
 	if err != nil {
 		logs.Fatalf("BindTools failed, err=%v", err)
@@ -131,6 +134,7 @@ func main() {
 
 	graph := compose.NewGraph[map[string]any, *schema.Message]()
 
+	//设置添加节点
 	_ = graph.AddChatTemplateNode(nodeTemplate, chatTpl)
 	_ = graph.AddChatModelNode(nodeModel, chatModel)
 	_ = graph.AddToolsNode(nodeTools, toolsNode)

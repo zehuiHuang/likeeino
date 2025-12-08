@@ -21,6 +21,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	clc "github.com/cloudwego/eino-ext/callbacks/cozeloop"
+	"github.com/cloudwego/eino-ext/callbacks/langfuse"
+	"github.com/coze-dev/cozeloop-go"
+	"github.com/joho/godotenv"
 	"io"
 	"likeeino/assistant/eino/einoagent"
 	"likeeino/pkg/mem"
@@ -29,7 +33,6 @@ import (
 	"sync"
 
 	"github.com/cloudwego/eino-ext/callbacks/apmplus"
-	"github.com/cloudwego/eino-ext/callbacks/langfuse"
 	"github.com/cloudwego/eino/callbacks"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/schema"
@@ -81,7 +84,9 @@ func Init() error {
 
 			callbackHandlers = append(callbackHandlers, cbh)
 		}
+
 		//应该也是用来监控的Trace
+
 		if os.Getenv("LANGFUSE_PUBLIC_KEY") != "" && os.Getenv("LANGFUSE_SECRET_KEY") != "" {
 			fmt.Println("[eino agent] INFO: use langfuse as callback, watch at: https://cloud.langfuse.com")
 			cbh, _ := langfuse.NewLangfuseHandler(&langfuse.Config{
@@ -96,6 +101,26 @@ func Init() error {
 			})
 			callbackHandlers = append(callbackHandlers, cbh)
 		}
+
+		//coze 全链路检测
+		if os.Getenv("COZELOOP_API_TOKEN") != "" && os.Getenv("COZELOOP_WORKSPACE_ID") != "" {
+			cozeloopApiToken := os.Getenv("COZELOOP_API_TOKEN")
+			cozeloopWorkspaceID := os.Getenv("COZELOOP_WORKSPACE_ID") // use cozeloop trace, from https://loop.coze.cn/open/docs/cozeloop/go-sdk#4a8c980e
+			ctx := context.Background()
+
+			if cozeloopApiToken != "" && cozeloopWorkspaceID != "" {
+				client, err := cozeloop.NewClient(
+					cozeloop.WithAPIToken(cozeloopApiToken),
+					cozeloop.WithWorkspaceID(cozeloopWorkspaceID),
+				)
+				if err != nil {
+					panic(err)
+				}
+				defer client.Close(ctx)
+				callbackHandlers = append(callbackHandlers, clc.NewLoopHandler(client))
+			}
+		}
+
 		if len(callbackHandlers) > 0 {
 			callbacks.AppendGlobalHandlers(callbackHandlers...)
 		}
@@ -109,7 +134,7 @@ func RunAgent(ctx context.Context, id string, msg string) (*schema.StreamReader[
 	if err != nil {
 		return nil, fmt.Errorf("failed to build agent graph: %w", err)
 	}
-	//数据缓存,存储每个会话的 多条记录
+	//数据缓存,存储每个会话的 多条记录(目前存储在项目data路径下的jsonl文件中)
 	conversation := memory.GetConversation(id, true)
 
 	userMessage := &einoagent.UserMessage{
@@ -205,4 +230,11 @@ func LogCallback(config *LogCallbackConfig) callbacks.Handler {
 		return ctx
 	})
 	return builder.Build()
+}
+
+func init() {
+	// 加载 .env 文件
+	if err := godotenv.Load(); err != nil {
+		log.Printf("Warning: Error loading .env file: %v\n", err)
+	}
 }

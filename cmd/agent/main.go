@@ -1,15 +1,15 @@
 package main
 
 import (
+	"likeeino/agent/agent"
 	_ "likeeino/agent/agent"
-	"likeeino/agent/multiagent/supervisor"
 )
 
 func main() {
 	//agent.SimpleAgent()
-	//agent.ReactAgent()
+	agent.ReactAgent()
 	//agent.ReactAgent2()
 	//multi.MultiAgent()
 	//multi2.MultiAgent()
-	supervisor.Agent()
+	//supervisor.Agent()
 }

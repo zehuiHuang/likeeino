@@ -1,0 +1,19 @@
+# 忽略所有 .env 文件
+.env
+.env.local
+.env.*
+*.env
+
+# 忽略配置文件目录
+config/
+secrets/
+keys/
+credentials/
+
+# 忽略特定文件
+*.key
+*.pem
+*.cert
+*.crt
+config.json
+settings.local.json

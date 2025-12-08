@@ -16,14 +16,14 @@ t:   转储线程列表
 v:   转储线程堆栈
 0-5: 设置跟踪级别为<n>
 ----------------------------------------------------
-2025-12-8 14:27:15 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
+2025-12-8 14:37:41 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
 警告:   Resource META-INF/config/message_exds_zh_CN.properties Not Found.
-2025-12-8 14:27:15 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
+2025-12-8 14:37:41 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
 警告:   Resource META-INF/config/message_exds_zh.properties Not Found.
-2025-12-8 14:27:15 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
+2025-12-8 14:37:41 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
 警告:   Resource META-INF/config/message_exds.properties Not Found.
-12-08 14:27:16.301 () DEBUG -->[system.adapter] 通讯配置文件采用[客户本地存储]的信息...
-12-08 14:27:16.317 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysConfig.json]
+12-08 14:37:42.267 () DEBUG -->[system.adapter] 通讯配置文件采用[客户本地存储]的信息...
+12-08 14:37:42.283 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysConfig.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -37,8 +37,8 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SysConfig.json
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SysConfig.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SysConfig.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SysConfig.json
-DJH-ClientResourceService-org.apache.http.conn.EofSensorInputStream@fb1135
-12-08 14:27:16.411 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/rootStage_zh.lgdict]
+DJH-ClientResourceService-org.apache.http.conn.EofSensorInputStream@1980c26
+12-08 14:37:42.345 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/rootStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -52,7 +52,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/rootStage_zh.lgdict
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/rootStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/rootStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/rootStage_zh.lgdict
-12-08 14:27:16.411 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/security/innersecurity.xml]
+12-08 14:37:42.361 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/security/innersecurity.xml]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -66,7 +66,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/security/innersecurity.
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/security/innersecurity.xml
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/security/innersecurity.xml
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/security/innersecurity.xml
-12-08 14:27:16.489 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/security/outtersecurity.xml]
+12-08 14:37:42.439 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/security/outtersecurity.xml]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -80,7 +80,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/security/outtersecurity
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/security/outtersecurity.xml
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/security/outtersecurity.xml
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/security/outtersecurity.xml
-12-08 14:27:16.505 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/keyboard/functiondef.xml]
+12-08 14:37:42.439 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/keyboard/functiondef.xml]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -94,7 +94,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/keyboard/functiondef.xm
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/keyboard/functiondef.xml
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/keyboard/functiondef.xml
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/keyboard/functiondef.xml
-12-08 14:27:16.520 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/keyboard/hotkeydef.xml]
+12-08 14:37:42.470 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/keyboard/hotkeydef.xml]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -108,7 +108,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/keyboard/hotkeydef.xml
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/keyboard/hotkeydef.xml
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/keyboard/hotkeydef.xml
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/keyboard/hotkeydef.xml
-12-08 14:27:16.545 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SoftKeyboardConfiguration.json]
+12-08 14:37:42.486 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SoftKeyboardConfiguration.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -122,7 +122,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SoftKeyboardConfigurati
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SoftKeyboardConfiguration.json
-12-08 14:27:16.560 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysVersion.json]
+12-08 14:37:42.486 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysVersion.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -136,7 +136,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/SysVersion.json
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SysVersion.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SysVersion.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SysVersion.json
-12-08 14:27:16.685 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysConfigSecurity.json]
+12-08 14:37:42.606 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/SysConfigSecurity.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -151,8 +151,8 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/SysConfigSecurity.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/SysConfigSecurity.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/SysConfigSecurity.json
 ======APPKEY_SWITCH=======OFF==SSL_SWITCH==null===SSL_PROXY_IP===null==SSL_PROXY_PORT==null
-12-08 14:27:16.732 (com.dcfs.teller.im.listener.bus.IIMBusListener:57) DEBUG -->即时消息的监听器收到指令，开始进行处理.
-12-08 14:27:16.763 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/Clientplugin_index.json]
+12-08 14:37:42.652 (com.dcfs.teller.im.listener.bus.IIMBusListener:57) DEBUG -->即时消息的监听器收到指令，开始进行处理.
+12-08 14:37:42.684 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/Clientplugin_index.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -167,7 +167,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/Clientplugin_index.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/Clientplugin_index.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/Clientplugin_index.json
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/Clientplugin_index.json]
-12-08 14:27:16.779 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/Clientplugin.json]
+12-08 14:37:42.699 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/Clientplugin.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -181,29 +181,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/Clientplugin.json
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/Clientplugin.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/Clientplugin.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/Clientplugin.json
-java.io.FileNotFoundException: C:\Users\Administrator\teller\device\JNICertEnrollment.qhdbank.dll (另一个程序正在使用此文件，进程无法访问。)
-	at java.io.FileOutputStream.open(Native Method)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at java.io.FileOutputStream.<init>(Unknown Source)
-	at cfca.qhdbank.CertEnrollmentKit.<clinit>(CertEnrollmentKit.java:41)
-	at com.dcfs.teller.client.plugin.widget.QHDUKControl.<clinit>(QHDUKControl.java:42)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Unknown Source)
-	at com.dcfs.teller.client.plugin.loader.impl.WidgetLoader.loadFromCache(WidgetLoader.java:109)
-	at com.dcfs.teller.client.plugin.loader.impl.WidgetLoader.loader(WidgetLoader.java:49)
-	at com.dcfs.teller.client.plugin.loader.impl.ViewengineLoader.loader(ViewengineLoader.java:36)
-	at com.dcfs.teller.client.plugin.identify.impl.PluginIdentify.identify(PluginIdentify.java:37)
-	at com.dcfs.teller.client.plugin.start.PluginStart.start(PluginStart.java:66)
-	at com.dcfs.teller.client.viewengine.impl.executor.ModuleStartupCmdExecutor.startPlugin(ModuleStartupCmdExecutor.java:112)
-	at com.dcfs.teller.client.viewengine.impl.executor.ModuleStartupCmdExecutor.execute(ModuleStartupCmdExecutor.java:73)
-	at com.dcfs.teller.client.viewengine.impl.ViewEngineImpl.executeCommand(ViewEngineImpl.java:425)
-	at com.dcfs.teller.client.viewengine.impl.ViewEngineImpl.executeCommand(ViewEngineImpl.java:300)
-	at com.dcfs.teller.client.viewengine.listener.ViewEnginListenerImpl.onMessage(ViewEnginListenerImpl.java:67)
-	at com.dcfs.teller.client.bus.impl.QueueImpl$ListenerTask.run(QueueImpl.java:435)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-12-08 14:27:17.092 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/PassowrdRuleConfig.json]
+12-08 14:37:43.012 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/PassowrdRuleConfig.json]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -217,12 +195,12 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/PassowrdRuleConfig.json
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/PassowrdRuleConfig.json
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/PassowrdRuleConfig.json
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/PassowrdRuleConfig.json
-12-08 14:27:17.170 (com.dcfs.teller.client.adapterImpl.UidlCommunicationImpl:91) DEBUG -->[system.adapter]数据走UIDL数据通信通道
-12-08 14:27:17.170 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:321) DEBUG -->[system.adapter]:走GZIP压缩通道[http://172.16.36.98:12301/server.do]...
-12-08 14:27:17.170 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:323) DEBUG -->[system.adapter]:客户端向服务端发送的数据为[{"HEAD":{"CMD_ID":"371744142717170","PATH":"init","LANGUAGE":"zh","CREATETIME":"14:27:17.170","ID":"init","STAGE_ID":"rootStage","EVENTTYPE":"UIDL_EVENT","SCENE_ID":"init","CLIENT_ID":"0CDA411D839B4088"},"BODY":{"UIDLID":"index"}}{"SYS_LOGINENTRY_NAME":index}]...
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.UidlCommunicationImpl:91) DEBUG -->[system.adapter]数据走UIDL数据通信通道
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:321) DEBUG -->[system.adapter]:走GZIP压缩通道[http://172.16.36.98:12301/server.do]...
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:323) DEBUG -->[system.adapter]:客户端向服务端发送的数据为[{"HEAD":{"CMD_ID":"454519143743090","PATH":"init","LANGUAGE":"zh","CREATETIME":"14:37:43.090","ID":"init","STAGE_ID":"rootStage","EVENTTYPE":"UIDL_EVENT","SCENE_ID":"init","CLIENT_ID":"0CDA411D839B4298"},"BODY":{"UIDLID":"index"}}{"SYS_LOGINENTRY_NAME":index}]...
 proxyEnv:null
 DJH-sendMessageII-未配置代理，使用直连
-12-08 14:27:17.185 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/tellerStage_zh.lgdict]
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/tellerStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -235,8 +213,27 @@ DJH-sendGzipMessageII-address3=http://172.16.36.98:12301/tellerStage_zh.lgdict
 DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/tellerStage_zh.lgdict
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/tellerStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/tellerStage_zh.lgdict
+12-08 14:37:43.106 (com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl:178) ERROR -->通讯适配器发生异常:向服务器发送指令请求时，服务端返回失败信息:顺序：[0]错误的类：[com.dcfs.teller.client.adapterImpl.AbstractClientCommunication]
+错误的行号：[438]
+顺序：[1]错误的类：[com.dcfs.teller.client.adapterImpl.UidlCommunicationImpl]
+错误的行号：[102]
+顺序：[2]错误的类：[com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl]
+错误的行号：[270]
+顺序：[3]错误的类：[com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl]
+错误的行号：[247]
+顺序：[4]错误的类：[com.dcfs.teller.client.adapter.listener.CommunicationListenerImpl]
+错误的行号：[169]
+顺序：[5]错误的类：[com.dcfs.teller.client.bus.impl.QueueImpl$ListenerTask]
+错误的行号：[435]
+顺序：[6]错误的类：[java.util.concurrent.ThreadPoolExecutor$Worker]
+错误的行号：[-1]
+顺序：[7]错误的类：[java.util.concurrent.ThreadPoolExecutor$Worker]
+错误的行号：[-1]
+顺序：[8]错误的类：[java.lang.Thread]
+错误的行号：[-1]
+
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/tellerStage_zh.lgdict
-12-08 14:27:17.185 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/tellerStage_exds_zh.lgdict]
+12-08 14:37:43.106 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/tellerStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -250,7 +247,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/tellerStage_exds_zh.lgd
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/tellerStage_exds_zh.lgdict
-12-08 14:27:17.201 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/integrateStage_zh.lgdict]
+12-08 14:37:43.121 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/integrateStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -264,7 +261,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/integrateStage_zh.lgdic
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/integrateStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/integrateStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/integrateStage_zh.lgdict
-12-08 14:27:17.201 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/integrateStage_exds_zh.lgdict]
+12-08 14:37:43.121 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/integrateStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -279,7 +276,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/integrateStage_exds_zh.
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/integrateStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/integrateStage_exds_zh.lgdict]
-12-08 14:27:17.217 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/nativeAppStage_zh.lgdict]
+12-08 14:37:43.121 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/nativeAppStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -293,7 +290,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/nativeAppStage_zh.lgdic
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/nativeAppStage_zh.lgdict
-12-08 14:27:17.217 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict]
+12-08 14:37:43.137 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -308,7 +305,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/nativeAppStage_exds_zh.
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/nativeAppStage_exds_zh.lgdict]
-12-08 14:27:17.217 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/monitorStage_zh.lgdict]
+12-08 14:37:43.137 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/monitorStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -322,7 +319,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/monitorStage_zh.lgdict
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/monitorStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/monitorStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/monitorStage_zh.lgdict
-12-08 14:27:17.232 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/monitorStage_exds_zh.lgdict]
+12-08 14:37:43.137 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/monitorStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -337,7 +334,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/monitorStage_exds_zh.lg
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/monitorStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/monitorStage_exds_zh.lgdict]
-12-08 14:27:17.232 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/highTellerStage_zh.lgdict]
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/highTellerStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -351,7 +348,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/highTellerStage_zh.lgdi
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/highTellerStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/highTellerStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/highTellerStage_zh.lgdict
-12-08 14:27:17.248 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict]
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -366,7 +363,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/highTellerStage_exds_zh
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/highTellerStage_exds_zh.lgdict]
-12-08 14:27:17.263 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/consoleStage_zh.lgdict]
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/consoleStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -380,7 +377,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/consoleStage_zh.lgdict
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/consoleStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/consoleStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/consoleStage_zh.lgdict
-12-08 14:27:17.295 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/consoleStage_exds_zh.lgdict]
+12-08 14:37:43.152 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/consoleStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -395,7 +392,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/consoleStage_exds_zh.lg
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/consoleStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/consoleStage_exds_zh.lgdict]
-12-08 14:27:17.310 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict]
+12-08 14:37:43.168 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -409,7 +406,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/sharedDeviceStage_zh.lg
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/sharedDeviceStage_zh.lgdict
-12-08 14:27:17.310 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict]
+12-08 14:37:43.168 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -424,7 +421,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/sharedDeviceStage_exds_
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/sharedDeviceStage_exds_zh.lgdict]
-12-08 14:27:17.310 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/authStage_zh.lgdict]
+12-08 14:37:43.184 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/authStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -438,7 +435,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/authStage_zh.lgdict
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/authStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/authStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/authStage_zh.lgdict
-12-08 14:27:17.326 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/authStage_exds_zh.lgdict]
+12-08 14:37:43.184 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/authStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -453,7 +450,7 @@ DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/authStage_exds_zh.lgdic
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/authStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/authStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address9=无法从服务端找到所需资源[http://172.16.36.98:12301/authStage_exds_zh.lgdict]
-12-08 14:27:17.326 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/paperlessStage_zh.lgdict]
+12-08 14:37:43.199 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/paperlessStage_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -467,7 +464,7 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/paperlessStage_zh.lgdic
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/paperlessStage_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/paperlessStage_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/paperlessStage_zh.lgdict
-12-08 14:27:17.342 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict]
+12-08 14:37:43.199 (com.dcfs.teller.client.adapterImpl.StaticResourceCommunicationImpl:99) DEBUG -->[system] 本次请求的静态资源为:[http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict]
 DJH-requestConfig-isGzip()1
 DJH-sendGzipMessageII-message=
 DJH-sendGzipMessageII-http.proxyHost=null
@@ -481,52 +478,3 @@ DJH-sendGzipMessageII-address4=http://172.16.36.98:12301/paperlessStage_exds_zh.
 DJH-sendGzipMessageII-address5=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address6=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
 DJH-sendGzipMessageII-address7=http://172.16.36.98:12301/paperlessStage_exds_zh.lgdict
-12-08 14:27:17.342 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:510) DEBUG -->[system.adapter]:接收到的报文大小为[9133]byte...
-12-08 14:27:17.342 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:442) DEBUG -->[system.time]服务端执行时间[172]ms
-12-08 14:27:17.342 (com.dcfs.teller.client.adapterImpl.UidlCommunicationImpl:107) DEBUG -->[system.communicadapter]收到服务端的响应报文：{"BODY":[{"BODY":{"HELP":"","UIDL_CONT":"<?xml version=\"1.0\" encoding=\"UTF-8\"?> <dc:RootStage xmlns:dc=\"com.dcfs.teller.client.ui\" maximized=\"true\" dc:text=\"APP_TITLE\" dc:id=\"rootStage\"> <dc:SystemLayout dc:id=\"rootstageLayout\" initializesize=\"950,694\"> <dc:SysSwitchSceneContainer dc:id=\"indexcontainer\" dc:main=\"true\" coordinate=\"0,0\" xwidth=\"100%\" xheight=\"100%\"> <dc:Scene dc:id=\"index\" coordinate=\"0,0\" xwidth=\"100%\" xheight=\"100%\"> <dc:ViewLayout initializesize=\"950,694\"> <dc:Image image=\"META-INF/image/teller/bg.jpg\" coordinate=\"0,0\"/> <dc:Image image=\"META-INF/image/teller/logo_DC01.png\" coordinate=\"10,10\"/> <dc:Image image=\"META-INF/image/teller/logo_text01.png\" coordinate=\"180,25\"/> <dc:Image image=\"META-INF/image/teller/logo_teller01.png\" coordinate=\"150,280\"/> <dc:Image image=\"META-INF/image/teller/icon_01.png\" coordinate=\"170,370\"/> <dc:Label dc:text=\"multiThread\" styles=\"{css:'gray666'}\" coordinate=\"200,375\"/> <dc:Image image=\"META-INF/image/teller/icon_02.png\" coordinate=\"350,370\"/> <dc:Label dc:text=\"multiRoof\" styles=\"{css:'gray666'}\" coordinate=\"380,375\"/> <dc:Image image=\"META-INF/image/teller/icon_03.png\" coordinate=\"170,400\"/> <dc:Label dc:text=\"yonghutiy\" styles=\"{css:'gray666'}\" coordinate=\"200,405\"/> <dc:Image image=\"META-INF/image/teller/icon_04.png\" coordinate=\"350,400\"/> <dc:Label dc:text=\"changeskin\" styles=\"{css:'gray666'}\" coordinate=\"385,405\"/> <dc:Image image=\"META-INF/image/teller/icon_05.png\" coordinate=\"170,430\"/> <dc:Label dc:text=\"languagechange\" styles=\"{css:'gray666'}\" coordinate=\"200,435\"/> <dc:Image image=\"META-INF/image/teller/icon_06.png\" coordinate=\"350,430\"/> <dc:Label dc:text=\"autoremind\" styles=\"{css:'gray666'}\" coordinate=\"385,435\"/> <dc:Image image=\"META-INF/image/teller/login_line.png\" coordinate=\"540,245\"/> <dc:Panel margin=\",,,\" coordinate=\"560,300\" xwidth=\"320\" xheight=\"175\" titleVisible=\"false\" opacity=\"0.0\"> <dc:Label dc:text=\"OperaterNO\" styles=\"{css:'gray666'}\" coordinate=\"20,10\" /> <dc:TextField dc:id=\"USERID\" coordinate=\"65,10\" enabled=\"false\" showtype=\"none\"/> <dc:TextField dc:id=\"CLIENT_USER_HOME\"  visible=\"false\" coordinate=\"0,0\"/> <dc:TextField dc:id=\"USERINFO\"  visible=\"false\" coordinate=\"0,0\"/> <dc:Button dc:id=\"GET_USERID\"  visible=\"false\" coordinate=\"0,0\"/> </dc:Panel> <dc:Label dc:text=\"copyrightinfo\" coordinate=\"10,680\" margin=\",15,3\"/>  </dc:ViewLayout> </dc:Scene> </dc:SysSwitchSceneContainer> </dc:SystemLayout> </dc:RootStage>","VERSION":"","TARGET":"","CACHEID":"index","EVENTCONT":{"index":{"confirmExit":{"click":"::C::DisconnectFromIMSysFunction();::s::;::s::;::s::"},"cancelOut":{"click":"::C::ClosePopWindowFunction()"},"GET_USERID":{"click":"::s::","redirect":"::s::"},"load":{"redirect":"::s::","load":"::C::GetClientHomeFunction();::C::ClearClientCache();::C::DelVideoFiles(1);::C::UpdateUserInfoToServerFunction(USERINFO,GET_USERID);::s::"},"cancelExit":{"click":"::C::ClosePopWindowFunction()"},"USERID":{"ScanFinger.iofinished":"::s::","redirect":"::s::","enter":"::s::;::S::com.dcfs.teller.counter.svrfunction.SetFieldValue;::s::"}},"switchScene":{"USER_LOCK_SWITCH1":{"click":"::s::"},"STAGESWITCH":{"dblclick":"::s::"},"LOGOUT_TEMP_SWITCH":{"click":"::s::"},"LOGOUT_FORMAL_SWITCH":{"click":"::C::CheckExsitAuthFunction(tellerStage);::s::;::s::"},"toolbox":{"pwdUpdate":{"click":"null;::s::;::s::;::C::RequestFocusFunction(rootStage,switchScene,MEDIUMINFO_OLD|500)"},"pwdSafeInfo":{"click":"::s::;::s::;null;::s::;::C::RequestFocusFunction(rootStage,switchScene,QUERYPROBLEM|500)"}},"USER_LOCK_SWITCH":{"click":"::C::CheckExsitAuthFunction(tellerStage);::s::;::C::CheckSceneMsg();::s::","timeout":"::C::CheckExsitAuthFunction(tellerStage);::s::;::C::CheckSceneMsg();::s::"},"confirmExit":{"click":"::C::CheckExsitAuthFunction(tellerStage);::C::CloseAllTransFunction(sceneTab);::C::DisconnectFromIMSysFunction();::s::;::s::","redirect":"::s::;::s::"},"load":{"load":"::s::;::s::;::s::;::C::StartSceneIdleCheckFunction(rootStage,switchScene,USER_LOCK_SWITCH)"},"cancelExit":{"click":"::C::ClosePopWindowFunction()"},"devButtonId":{"ScanFinger.iofinished":"::C::UnLockStageFunction()","click":"::s::"}},"tellerStage":{"dblclick":"::s::;::s::;::s::"},"paperlessStage":{"dblclick":"::s::;::s::"},"sealStage":{"dblclick":"::s::"},"password_update":{"UPDATE_SUBMIT":{"click":"::s::"}},"tellerTreeScene":{"assistButton":{"assistCtrlFinished":"::s::"},"TRAN_CODE_QUICK":{"change":"::s::"}},"tellerBarScene":{"toolbox":{"switchPinkSkin":{"click":"::C::SwitchThemeFunction(pink);::s::"},"switchBlackSkin":{"click":"::C::SwitchThemeFunction(black);::s::"},"switchBigfontSkin":{"click":"::C::SwitchThemeFunction(bigfont);::s::"},"switchDefaultSkin":{"click":"::C::SwitchThemeFunction(default);::s::"}}},"stageSwitchScene":{"tellerStage":{"contentPress":"::s::;::s::;::s::"},"consoleStage":{"contentPress":"::s::"},"paperlessStage":{"contentPress":"::s::;::s::"},"sealStage":{"contentPress":"::s::"},"authStage":{"contentPress":"::s::"},"TOPSTAGESWITCH":{"sectorPress":"::C::TopExpanderFunction(L)","contentPress":"::C::TopExpanderFunction(C)","gridPress":"::C::TopExpanderFunction(R)"},"monitorStage":{"contentPress":"::s::"}},"tellerHeadScene":{"kbs":{"partload":"::s::"},"HELP":{"click":"::s::"},"authconfirmExitFormal":{"click":"::C::CheckExsitAuthFunction(tellerStage);::C::SwitchTabWorkaround(navigationTab,controlcontainer,controlcontainer);::C::ClosePopWindowFunction()"},"USER_LOCK":{"click":"::C::CheckExsitAuthFunction(tellerStage);::s::;::C::CheckSceneMsg();::s::","timeout":"::C::CheckExsitAuthFunction(tellerStage);::s::;::C::CheckSceneMsg();::s::"},"USER_LOCK1":{"click":"::s::"},"LOGOUT_FORMAL_LOW":{"click":"::C::CheckExsitAuthFunction(tellerStage);::s::;::s::"},"confirmExit":{"click":"::C::CheckExsitAuthFunction(tellerStage);::C::CloseAllTransFunction(sceneTab);::C::DisconnectFromIMSysFunction();::s::;::s::"},"TRAN_CODE_QUICK":{"change":"::s::"},"LOGOUT_FORMAL":{"click":"::C::CheckExsitAuthFunction(tellerStage);::s::","redirect":"::s::"},"devButtonIdTeller":{"ScanFinger.iofinished":"::s::;::C::UnLockStageFunction()","click":"::s::"},"openLogoutDeal":{"click":"::C::ClosePopWindowFunction();::C::OpenSceneFunction(tellerStage,,00603,{})"},"LOGOUT_TEMP_LOW":{"click":"::s::"},"confirmExitFormal":{"click":"::C::CheckExsitAuthFunction(tellerStage);::C::CloseAllTransFunction(sceneTab);::s::","redirect":"::s::;::s::;::s::;::s::;::s::"},"KBS":{"click":"::s::"},"cancelExit":{"click":"::C::ClosePopWindowFunction()"},"load":{"load":"::s::;::s::"}},"consoleStage":{"dblclick":"::s::"},"authStage":{"dblclick":"::s::"},"voucherCtrlWindow":{"voucherCtrl":{"voucherCtrlClosed":"::s::","voucherCtrlSign":"::s::"},"voucherCtrlWindow":{"partload":"::s::"}},"0704":{"ok":{"click":"::C::ClosePopWindowFunction();::C::ClosePopWindowFunction(FINDOUTINFO_SUBMIT)"},"FINDOUTINFO_SUBMIT":{"click":"::s::"}},"lockScene":{"confirmExit":{"click":"::C::CheckExsitAuthFunction(tellerStage);::C::CloseAllTransFunction(sceneTab);::C::DisconnectFromIMSysFunction();::s::;::s::"},"unLockLogin":{"ScanFinger.iofinished":"::s::","redirect":"::s::;::s::"},"resetdev":{"ScanFinger.iofinished":"::s::","redirect":"::s::"},"load":{"load":"::s::;::s::;::s::;::C::StopSceneIdleCheckFunction()"},"cancelExit":{"click":"::C::ClosePopWindowFunction()"},"reversalUnLock":{"unLockLogin":{"click":"::s::;::C::LockOverturn(reversalUnLock);::s::"},"unLockPassword":{"enter":"::s::;::s::"},"resetdev":{"click":"::s::;::s::"},"loginButton":{"click":"::s::;::s::"}}},"rootStage":{"unload":"::s::"},"pwd_login":{"loginButton":{"click":"::s::","redirect":"::s::;::s::;::s::;::s::;::s::;::s::;::s::"}},"monitorStage":{"dblclick":"::s::"}},"I18N":"","CACHEVERSION":""},"HEAD":{"SECRET_KEY":"08BD7045CDD63592A2E7937AB19535C753008FD0C1BCF9A3271BEF3DF68DE627DFA3A493A19D4D04E660BF08D1EE9527AA1F6CAE95D0A5F048E7E11C5B9DE314A46062DBE23F62C6B1EFF5B0B090A4F0AB9D07F434BD93790E0D5DD2D1CD88DA2024659702336C4CC3F2E938A0E4E093F0590E104F27DB0762C39B9E40130C28","LANGUAGE":"zh","CMD_ID":"142506958242871","CLIENT_ID":"0CDA411D839B4088","ID":"init","SCENE_ID":"init","PATH":"","CREATETIME":"14:25:06.958","COMMAND":"SYSVIEWMODEL_CMD","STAGE_ID":"rootStage"}}],"HEAD":{"GROUP_SCENEID":"init","CMD_ID":"142506958242871","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","CLIENT_ID":"0CDA411D839B4088","GROUP_STAGEID":"rootStage","COMMAND":"CMD_GATHER"}}{"conversation":{"functionID":"index","contextID":"index_1425061610488453","first":false,"parentConversation":null,"intervenorState":{"index":"1","switchScene":"4","tellerHeadScene":"main-flow-view-1","tellerHeadlogoScene":"main-flow-view-2","lockScene":"5","stageSwitchScene":"6"},"firstintermit":true,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"lastView":null,"forceover":false,"intermitType":null,"over":false,"domainID":"rootStage","version":null,"state":[{"transitionID":null,"stateID":"1","sub":null,"intermittype":null,"intermitstate":false,"view":null,"first":false,"redirect":null}]}}
-2025-12-8 14:27:17 com.dcfs.teller.client.plugin.viewmodel.SceneLockWhenAuth <init>
-信息: [SceneLockWhenAuth]:构造SceneLockWhenAuth
-12-08 14:27:17.592 (com.dcfs.teller.client.plugin.function.ClearClientCache:43) ERROR -->开始清理客户端生成的PL_、PL-开头的文件夹和pdf文件
-12-08 14:27:17.592 (com.dcfs.teller.client.plugin.function.ClearClientCache:72) ERROR -->结束客户端用户目录清理!
-12-08 14:27:17.592 (com.dcfs.teller.client.plugin.function.ClearClientCache:76) ERROR -->开始清理客户端升腾A10驱动文件
-12-08 14:27:17.592 (com.dcfs.teller.client.plugin.function.ClearClientCache:96) ERROR -->结束客户端驱动文件清理!
-双录影像程序源文件夹videoResource不存在
-12-08 14:27:17.645 (com.dcfs.teller.client.adapterImpl.ClientCommunicationImpl:87) DEBUG -->[system.adapter]数据走默认通信通道
-12-08 14:27:17.645 (com.dcfs.teller.client.adapterImpl.ClientCommunicationImpl:94) DEBUG -->[system.communicadapter]发送到服务端的报文：{"HEAD":{"CMD_ID":"6904946142717592","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","PATH":"load","LANGUAGE":"zh","CREATETIME":"14:27:17.592","ID":"load","STAGE_ID":"rootStage","EVENTTYPE":"APP_LOGIC_EVENT","SCENE_ID":"index","CLIENT_ID":"0CDA411D839B4088"},"BODY":{"SCENE_SIGN":"index","ACTION":"load","ACTION_TYPE":"load"}}{"SYS_LOGINENTRY_NAME":index}{"conversation":{"lastView":null,"intermitType":null,"functionID":"index","first":false,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"state":[{"transitionID":null,"sub":null,"first":false,"stateID":"1","redirect":null,"view":null,"intermittype":null,"intermitstate":false}],"firstintermit":true,"over":false,"contextID":"index_1425061610488453","version":null,"forceover":false,"domainID":"rootStage"}}
-12-08 14:27:17.645 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:321) DEBUG -->[system.adapter]:走GZIP压缩通道[http://172.16.36.98:12301/server.do]...
-12-08 14:27:17.645 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:323) DEBUG -->[system.adapter]:客户端向服务端发送的数据为[{"HEAD":{"CMD_ID":"6904946142717592","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","PATH":"load","LANGUAGE":"zh","CREATETIME":"14:27:17.592","ID":"load","STAGE_ID":"rootStage","EVENTTYPE":"APP_LOGIC_EVENT","SCENE_ID":"index","CLIENT_ID":"0CDA411D839B4088"},"BODY":{"SCENE_SIGN":"index","ACTION":"load","ACTION_TYPE":"load"}}{"SYS_LOGINENTRY_NAME":index}{"conversation":{"lastView":null,"intermitType":null,"functionID":"index","first":false,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"state":[{"transitionID":null,"sub":null,"first":false,"stateID":"1","redirect":null,"view":null,"intermittype":null,"intermitstate":false}],"firstintermit":true,"over":false,"contextID":"index_1425061610488453","version":null,"forceover":false,"domainID":"rootStage"}}]...
-proxyEnv:null
-DJH-sendMessageII-未配置代理，使用直连
-12-08 14:27:17.869 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:510) DEBUG -->[system.adapter]:接收到的报文大小为[5013]byte...
-12-08 14:27:17.869 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:442) DEBUG -->[system.time]服务端执行时间[224]ms
-12-08 14:27:17.869 (com.dcfs.teller.client.adapterImpl.ClientCommunicationImpl:103) DEBUG -->[system.communicadapter]收到服务端的响应报文：{"BODY":[{"BODY":{"VERSION":""},"HEAD":{"LANGUAGE":"zh","CMD_ID":"6904946142717592","CLIENT_ID":"0CDA411D839B4088","ID":"load","SCENE_ID":"index","PATH":"load","CREATETIME":"14:25:07.426","COMMAND":"MODELCHANGE_CMD","STAGE_ID":"rootStage"}},{"BODY":{"VERSION":"","BUILDERSTATUS":"false","DEVICECLASS":"SYSTEM","REQUESTID":"6904946142717592","FUNCTIONDATA":{"terminalID":"0CDA411D839B4088","listenPort":"49000","systemConfig":{"device_system_notify":"ON","switch_printer_condition":"储蓄存单","multiprocess_driverbase":"OFF","driver_log":"OFF","print_mode":"CHAR","print_precision":"char","hint_on_receipt_print_first_run":"ON","receiptReprintConfirmConfig":{"func_switch":"OFF"},"device_status":"OFF","switch_printer":"ON"},"deviceConfig":{"LASERPRINTER":[{"port":{"port_id":"LPT1","port_type":"LPT","timeout":"15","mode":"ECP"},"dev_model":"GENERAL_LASERPRINTER","dev_model_desc":"兼容型激光打印机","param":{"auto_retry":"N","printer_name":""},"dev_maker":"","term_id":"0000011790","dev_class_desc":"激光打印机","dev_class":"LASERPRINTER","dev_type_flag":"1","dev_status":"1"}],"APPRAISER":[{"port":{"port_id":"USB","port_type":"USB","timeout":"15"},"dev_model":"CENTERM_A10","dev_model_desc":"升腾CENTERM_A10柜外清","param":{"cmd_set":"CENTERM_KEYPAD","sec_mode":"hard_enc"},"dev_maker":"","term_id":"0000011790","dev_class_desc":"评价器","dev_class":"APPRAISER","dev_type_flag":"2","dev_status":"1"}],"FINGER":[{"port":{"port_id":"USB","port_type":"USB","timeout":"15"},"dev_model":"TesoLive_Techshino","dev_model_desc":"天诚盛业指纹仪","dev_maker":"","term_id":"0000011790","dev_class_desc":"指纹阅读器","dev_class":"FINGER","dev_type_flag":"1","dev_status":"1"}],"SIGNPAD":[{"port":{"port_id":"USB","port_type":"USB","timeout":"15"},"dev_model":"CENTERM_A10","dev_model_desc":"升腾CENTERM_A10柜外清","param":{"cmd_set":"CENTERM_KEYPAD","sec_mode":"hard_enc"},"dev_maker":"","term_id":"0000011790","dev_class_desc":"签名板","dev_class":"SIGNPAD","dev_type_flag":"2","dev_status":"1"}],"KEYPAD":[{"port":{"port_id":"USB","port_type":"USB","timeout":"15"},"dev_model":"CENTERM_A10","dev_model_desc":"升腾CENTERM_A10柜外清","param":{"cmd_set":"CENTERM_KEYPAD","sec_mode":"hard_enc"},"dev_maker":"","term_id":"0000011790","dev_class_desc":"数字键盘","dev_class":"KEYPAD","dev_type_flag":"2","dev_status":"1"}],"INTERACTSCREEN":[{"port":{"port_id":"USB","port_type":"USB","timeout":"15"},"dev_model":"CENTERM_A10","dev_model_desc":"升腾CENTERM_A10柜外清","param":{"cmd_set":"CENTERM_KEYPAD","sec_mode":"hard_enc"},"dev_maker":"","term_id":"0000011790","dev_class_desc":"交互式屏幕","dev_class":"INTERACTSCREEN","dev_type_flag":"2","dev_status":"1"}]}},"TYPE":"FIRSTRUN","FUNCTIONNAME":"Start"},"HEAD":{"LANGUAGE":"zh","CMD_ID":"142507547742242","CLIENT_ID":"0CDA411D839B4088","ID":"load","SCENE_ID":"index","PATH":"load","CREATETIME":"14:25:07.547","COMMAND":"DEVICE_ACCESS_CMD","STAGE_ID":"rootStage"}}],"HEAD":{"GROUP_SCENEID":"index","CMD_ID":"6904946142717592","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","CLIENT_ID":"0CDA411D839B4088","GROUP_STAGEID":"rootStage","COMMAND":"CMD_GATHER"}}{"conversation":{"functionID":"index","contextID":"index_1425061610488453","first":false,"parentConversation":null,"intervenorState":{},"firstintermit":true,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"lastView":null,"forceover":false,"intermitType":null,"over":false,"domainID":"rootStage","version":null,"state":[{"transitionID":null,"stateID":"1","sub":null,"intermittype":null,"intermitstate":false,"view":null,"first":false,"redirect":null},{"transitionID":"init","stateID":"1","sub":null,"intermittype":null,"intermitstate":false,"view":"index","first":true,"redirect":null}]}}{"MODELCHANGE":{"update":{"0CDA411D839B4088-index":{"type":"struct","data":{"AT":"struct"},"model":{"USERNAME":{"type":"field","data":{"value":"","AT":"field","property":{"dataType":"string"}}},"USER_NAME":{"type":"field","data":{"value":"","AT":"field","property":{"dataType":"string"}}},"USERPWD":{"type":"field","data":{"value":"******","AT":"field","property":{"dataType":"string"}}},"USERID":{"type":"field","data":{"value":"","AT":"field","property":{"dataType":"string"}}}}}},"delete":[],"insert":[]}{"update":{"0CDA411D839B4088-index":{"type":"struct","data":{"AT":"struct"},"model":{"IPADDRESS":{"type":"field","data":{"value":"10.9.1.185","AT":"field","property":{"dataType":"string"}}},"INIT_DATE":{"type":"field","data":{"value":"20251208","AT":"field","property":{"dataType":"string"}}},"TERMINALID":{"type":"field","data":{"value":"0CDA411D839B4088","AT":"field","property":{"dataType":"string"}}}}}},"delete":[],"insert":[]}{"update":{"0CDA411D839B4088-index":{"type":"struct","data":{"AT":"struct"}}},"delete":[],"insert":[]}{"update":{"0CDA411D839B4088-index":{"type":"struct","data":{"AT":"struct"},"model":{"USERID":{"view":{"this":{"enabled":"true","showtype":"border"}}}}}},"delete":[],"insert":[]}}
-12-08 14:27:20.886 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=KEYPAD;====devCfg.getDevMdl()=CENTERM_A10
-12-08 14:27:20.886 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=FINGER;====devCfg.getDevMdl()=TesoLive_Techshino
-12-08 14:27:20.901 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=APPRAISER;====devCfg.getDevMdl()=CENTERM_A10
-12-08 14:27:20.901 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=SIGNPAD;====devCfg.getDevMdl()=CENTERM_A10
-12-08 14:27:20.901 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=LASERPRINTER;====devCfg.getDevMdl()=GENERAL_LASERPRINTER
-12-08 14:27:20.901 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=COMMONDEVICE;====devCfg.getDevMdl()=InnerCommonFuncDevice
-12-08 14:27:20.901 (com.dcfs.teller.client.plugin.device.CENTERM_CKB5150:546) ERROR -->==isValidDriverImpl==devCfg.getDevCls()=INTERACTSCREEN;====devCfg.getDevMdl()=CENTERM_A10
-12-08 14:27:20.932 (com.dcfs.teller.client.adapterImpl.DeviceCommunicationImpl:85) DEBUG -->[system.adapter]设备事件走设备通信通道
-12-08 14:27:20.932 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:321) DEBUG -->[system.adapter]:走GZIP压缩通道[http://172.16.36.98:12301/server.do]...
-12-08 14:27:20.932 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:323) DEBUG -->[system.adapter]:客户端向服务端发送的数据为[{"HEAD":{"CMD_ID":"609776142720932","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","PATH":"load","LANGUAGE":"zh","CREATETIME":"14:27:20.932","ID":"load","STAGE_ID":"rootStage","EVENTTYPE":"DEVICE_EVENT","SCENE_ID":"index","CLIENT_ID":"0CDA411D839B4088"},"BODY":{"conversationid":"","devfuncdata":{"STATE":"SUCCESS","ERRORMSG":"30004","ERRORCODE":"30004"},"requestid":"6904946142717592"}}{"SYS_LOGINENTRY_NAME":index}{"conversation":{"lastView":null,"intermitType":null,"functionID":"index","first":false,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"state":[{"transitionID":null,"sub":null,"first":false,"stateID":"1","redirect":null,"view":null,"intermittype":null,"intermitstate":false},{"transitionID":"init","sub":null,"first":true,"stateID":"1","redirect":null,"view":"index","intermittype":null,"intermitstate":false}],"firstintermit":true,"over":false,"contextID":"index_1425061610488453","version":null,"forceover":false,"domainID":"rootStage"}}]...
-proxyEnv:null
-DJH-sendMessageII-未配置代理，使用直连
-12-08 14:27:20.948 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:510) DEBUG -->[system.adapter]:接收到的报文大小为[790]byte...
-12-08 14:27:20.948 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:442) DEBUG -->[system.time]服务端执行时间[16]ms
-2025-12-8 14:27:21 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
-警告:   Resource META-INF/config/message_zh.properties Not Found.
-2025-12-8 14:27:21 com.dcfs.teller.client.common.message.PropertyMessageResources loadLocale
-警告:   Resource META-INF/config/message.properties Not Found.
-clientQuit
-12-08 14:27:25.370 (com.dcfs.teller.client.adapterImpl.ClientCommunicationImpl:87) DEBUG -->[system.adapter]数据走默认通信通道
-12-08 14:27:25.370 (com.dcfs.teller.client.adapterImpl.ClientCommunicationImpl:94) DEBUG -->[system.communicadapter]发送到服务端的报文：{"HEAD":{"CMD_ID":"3083920142725370","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","LANGUAGE":"zh","CREATETIME":"14:27:25.370","ID":"rootStage","STAGE_ID":"rootStage","EVENTTYPE":"SYS_LOGIC_EVENT","SCENE_ID":"index","CLIENT_ID":"0CDA411D839B4088"},"BODY":{"SCENE_SIGN":"index","ACTION_TYPE":"unload"}}{"SYS_LOGINENTRY_NAME":index}{"conversation":{"lastView":null,"intermitType":null,"functionID":"index","first":false,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"state":[{"transitionID":null,"sub":null,"first":false,"stateID":"1","redirect":null,"view":null,"intermittype":null,"intermitstate":false},{"transitionID":"init","sub":null,"first":true,"stateID":"1","redirect":null,"view":"index","intermittype":null,"intermitstate":false}],"firstintermit":true,"over":false,"contextID":"index_1425061610488453","version":null,"forceover":false,"domainID":"rootStage"}}{"SYNCHRODATA":{"update":{"0CDA411D839B4088-index":{"type":"struct","data":{"AT":"struct"},"model":{"CLIENT_USER_HOME":{"type":"field","data":{"value":"C:\Users\Administrator","AT":"field","property":{"dataType":"string"}}}}}}}}
-12-08 14:27:25.370 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:321) DEBUG -->[system.adapter]:走GZIP压缩通道[http://172.16.36.98:12301/server.do]...
-12-08 14:27:25.370 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:323) DEBUG -->[system.adapter]:客户端向服务端发送的数据为[{"HEAD":{"CMD_ID":"3083920142725370","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","LANGUAGE":"zh","CREATETIME":"14:27:25.370","ID":"rootStage","STAGE_ID":"rootStage","EVENTTYPE":"SYS_LOGIC_EVENT","SCENE_ID":"index","CLIENT_ID":"0CDA411D839B4088"},"BODY":{"SCENE_SIGN":"index","ACTION_TYPE":"unload"}}{"SYS_LOGINENTRY_NAME":index}{"conversation":{"lastView":null,"intermitType":null,"functionID":"index","first":false,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"state":[{"transitionID":null,"sub":null,"first":false,"stateID":"1","redirect":null,"view":null,"intermittype":null,"intermitstate":false},{"transitionID":"init","sub":null,"first":true,"stateID":"1","redirect":null,"view":"index","intermittype":null,"intermitstate":false}],"firstintermit":true,"over":false,"contextID":"index_1425061610488453","version":null,"forceover":false,"domainID":"rootStage"}}{"SYNCHRODATA":{"update":{"0CDA411D839B4088-index":{"type":"struct","data":{"AT":"struct"},"model":{"CLIENT_USER_HOME":{"type":"field","data":{"value":"C:\Users\Administrator","AT":"field","property":{"dataType":"string"}}}}}}}}]...
-proxyEnv:null
-DJH-sendMessageII-未配置代理，使用直连
-12-08 14:27:25.417 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:510) DEBUG -->[system.adapter]:接收到的报文大小为[1479]byte...
-12-08 14:27:25.417 (com.dcfs.teller.client.adapterImpl.AbstractClientCommunication:442) DEBUG -->[system.time]服务端执行时间[47]ms
-12-08 14:27:25.417 (com.dcfs.teller.client.adapterImpl.ClientCommunicationImpl:103) DEBUG -->[system.communicadapter]收到服务端的响应报文：{"BODY":[{"BODY":{"NEXTSTEP":[{"NEX_CREATETYPE":false,"NEX_SCENEID":"confirmExit","NEX_PARAM":"","NEX_SCENETITLE":"确定","NEX_SUBSTAGEID":"rootStage","NEX_TYPE":"button"},{"NEX_CREATETYPE":false,"NEX_SCENEID":"cancelExit","NEX_PARAM":"","NEX_SCENETITLE":"取消","NEX_SUBSTAGEID":"rootStage","NEX_TYPE":"button"}],"MESSAGE":{"msginfo":{"MESSAGEMSG":"您确认要退出系统？"}},"MESSAGETYPE":"INFO","EFFECT":[],"PRESENTATIONMODE":"WINDOW"},"HEAD":{"LANGUAGE":"zh","CMD_ID":"3083920142725370","CLIENT_ID":"0CDA411D839B4088","ID":"rootStage","SCENE_ID":"index","PATH":"","CREATETIME":"14:27:25.370","COMMAND":"MESSAGE_CMD","STAGE_ID":"rootStage"}}],"HEAD":{"GROUP_SCENEID":"index","CMD_ID":"0CDA411D839B4088","NODE":"1765175106917,43200000,0CDA411D839B4088,XHX-TEL-YZ-APP,XHX-TEL-PARM-APP","CLIENT_ID":"0CDA411D839B4088","GROUP_STAGEID":"rootStage","COMMAND":"CMD_GATHER"}}{"conversation":{"functionID":"index","contextID":"index_1425061610488453","first":false,"parentConversation":null,"intervenorState":{},"firstintermit":true,"overintermit":false,"intermitScene":null,"dyStateswitch":null,"lastView":null,"forceover":false,"intermitType":null,"over":false,"domainID":"rootStage","version":null,"state":[{"transitionID":null,"stateID":"1","sub":null,"intermittype":null,"intermitstate":false,"view":null,"first":false,"redirect":null},{"transitionID":"init","stateID":"1","sub":null,"intermittype":null,"intermitstate":false,"view":"index","first":true,"redirect":null}]}}
-Duplicate listener com.dcfs.teller.client.ui.PopWindow$PopedWindowListener@f36a78 added to org.apache.pivot.wtk.Window$WindowStateListenerList@d32d65
-Duplicate listener com.dcfs.teller.client.ui.PopWindow$DealPopWindowToTop@4951b2 added to org.apache.pivot.wtk.Window$WindowStateListenerList@d32d65

@@ -49,6 +49,7 @@ func NewOpenFileTool(ctx context.Context, config *OpenFileToolConfig) (tn tool.B
 		}
 	}
 	t := &OpenFileToolImpl{config: config}
+	//返回了最终实现的InvokableTool接口的实现类
 	tn, err = t.ToEinoTool()
 	if err != nil {
 		return nil, err
@@ -57,6 +58,7 @@ func NewOpenFileTool(ctx context.Context, config *OpenFileToolConfig) (tn tool.B
 }
 
 func (of *OpenFileToolImpl) ToEinoTool() (tool.InvokableTool, error) {
+	//在utils.InferTool的方法最后一个参数为InvokeFunc的自定义函数类型(可以传入了相同签名的方法来赋予其额外能力)
 	return utils.InferTool("open", "open a file/dir/web url in the system by default application", of.Invoke)
 }
 
@@ -93,6 +95,7 @@ type OpenRes struct {
 	Message string `json:"message" jsonschema_description:"The message of the operation"`
 }
 
+// 执行终端命令,最终打开浏览器的网页
 func openURI(uri string) error {
 	var cmd *exec.Cmd
 	switch runtime.GOOS {

@@ -29,8 +29,6 @@ func ReactAgent() {
 	cozeloopApiToken := os.Getenv("COZELOOP_API_TOKEN")
 	cozeloopWorkspaceID := os.Getenv("COZELOOP_WORKSPACE_ID") // use cozeloop trace, from https://loop.coze.cn/open/docs/cozeloop/go-sdk#4a8c980e
 
-	//arkAPIKey := "8e6766ee-7bdc-4f80-b678-3344fc0c3c08"
-	//arkModelName := "doubao-1-5-pro-32k-250115"
 	ctx := context.Background()
 
 	var handlers []callbacks.Handler

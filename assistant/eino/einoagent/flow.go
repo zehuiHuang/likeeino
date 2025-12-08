@@ -34,6 +34,7 @@ func newLambda1(ctx context.Context) (lba *compose.Lambda, err error) {
 		return nil, err
 	}
 	config.ToolCallingModel = chatModelIns11
+	//给react agent 添加工具
 	tools, err := GetTools(ctx)
 	if err != nil {
 		return nil, err

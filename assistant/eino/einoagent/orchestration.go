@@ -57,8 +57,8 @@ func BuildEinoAgent(ctx context.Context) (r compose.Runnable[*UserMessage, *sche
 	_ = g.AddRetrieverNode(RedisRetriever, redisRetrieverKeyOfRetriever, compose.WithOutputKey("documents"))
 	_ = g.AddLambdaNode(InputToHistory, compose.InvokableLambdaWithOption(newLambda2), compose.WithNodeName("UserMessageToVariables"))
 	//两条边并行执行
-	//compose.STAR  -》InputToQuery -》 RedisRetriever -》 ChatTemplate -》 ReactAgent -》 compose.END
-	//compose.START -》 InputToHistory -》 ChatTemplate -》 ReactAgent -》 compose.END
+	//compose.STAR  -》  InputToQuery  -》 RedisRetriever -》 ChatTemplate -》 ReactAgent -》 compose.END
+	//compose.START -》 InputToHistory -》 ChatTemplate   -》 ReactAgent   -》 compose.END
 	_ = g.AddEdge(compose.START, InputToQuery)
 	_ = g.AddEdge(compose.START, InputToHistory)
 	_ = g.AddEdge(ReactAgent, compose.END)
