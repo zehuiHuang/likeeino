@@ -3,7 +3,7 @@ module likeeino
 go 1.25.1
 
 require (
-	github.com/cloudwego/eino v0.7.0
+	github.com/cloudwego/eino v0.7.7
 	github.com/cloudwego/eino-examples v0.0.0-20251120123305-3ce08012fd39
 	github.com/cloudwego/eino-examples/quickstart/eino_assistant v0.0.0-20251120123305-3ce08012fd39
 	github.com/cloudwego/eino-ext/callbacks/apmplus v0.0.1
@@ -57,7 +57,7 @@ require (
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
-	github.com/eino-contrib/jsonschema v1.0.2 // indirect
+	github.com/eino-contrib/jsonschema v1.0.3 // indirect
 	github.com/eino-contrib/ollama v0.1.0 // indirect
 	github.com/evanphx/json-patch v0.5.2 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
