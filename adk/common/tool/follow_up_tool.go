@@ -87,6 +87,7 @@ func FollowUp(ctx context.Context, input *FollowUpToolInput) (string, error) {
 }
 
 func GetFollowUpTool() tool.InvokableTool {
+	//创建工具的方法,只需要提供指定的方法签名即可
 	t, err := utils.InferTool("FollowUpTool", "Asks the user for more information by providing a list of questions.", FollowUp)
 	if err != nil {
 		log.Fatal(err)

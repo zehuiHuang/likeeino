@@ -1,58 +1,39 @@
+/**
+
+ */
+
 package main
 
 import (
 	"context"
 	"fmt"
+	"github.com/cloudwego/eino/callbacks"
 	"github.com/cloudwego/eino/schema"
 	"likeeino/adk/common/model"
 	"likeeino/internal/logs"
 	"log"
 
 	"github.com/cloudwego/eino/adk"
-	"github.com/cloudwego/eino/callbacks"
 	"github.com/cloudwego/eino/components/tool"
-	"github.com/cloudwego/eino/components/tool/utils"
 	"github.com/cloudwego/eino/compose"
 	tool2 "likeeino/adk/common/tool"
 )
 
-// 人机协同
-
-func NewTicketBookingAgent() adk.Agent {
+func NewTicketAgent() adk.Agent {
 	ctx := context.Background()
-	// 工具回调：打印调用前后的入参与返回
 	// 注册为全局 handler，这样后续的工具节点都会触发
 	callbacks.AppendGlobalHandlers(&loggerCallbacks{})
-	//定义入参结构体
-	type bookInput struct {
-		Location             string `json:"location"`
-		PassengerName        string `json:"passenger_name"`
-		PassengerPhoneNumber string `json:"passenger_phone_number"`
-	}
-	//自定义工具函数
-	getWeather, err := utils.InferTool(
-		"BookTicket",
-		"this tool can book ticket of the specific location",
-		func(ctx context.Context, input bookInput) (output string, err error) {
-			return "success", nil
-		})
-	if err != nil {
-		log.Fatal(err)
-	}
-	//构建ChatModelAgent,主要包括大模型配置和工具
+
 	a, err := adk.NewChatModelAgent(ctx, &adk.ChatModelAgentConfig{
 		Name:        "TicketBooker",
 		Description: "An agent that can book tickets",
-		Instruction: `You are an expert ticket booker.
-Based on the user's request, use the "BookTicket" tool to book tickets.`,
+		Instruction: `You are an expert ticket booker. Your goal is to book a ticket for a user.
+If you have enough information (e.g., location, passenger name, etc.), use the 'BookTicket' tool to book the ticket.
+If you are missing information, you should ask the user for it.`,
 		Model: model.NewChatModel(),
 		ToolsConfig: adk.ToolsConfig{
 			ToolsNodeConfig: compose.ToolsNodeConfig{
-				Tools: []tool.BaseTool{
-					// InvokableApprovableTool 是 eino-examples 提供的一个 tool 装饰器，
-					// 可以为任意的 InvokableTool 加上“审批中断”功能
-					&tool2.InvokableApprovableTool{InvokableTool: getWeather},
-				},
+				Tools: []tool.BaseTool{&tool2.InvokableReviewEditTool{InvokableTool: NewBookTicketTool()}},
 			},
 		},
 	})
@@ -63,6 +44,7 @@ Based on the user's request, use the "BookTicket" tool to book tickets.`,
 	return a
 }
 
+// ------------------
 type loggerCallbacks struct{}
 
 func (l *loggerCallbacks) OnStart(ctx context.Context, info *callbacks.RunInfo, input callbacks.CallbackInput) context.Context {

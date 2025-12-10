@@ -46,6 +46,8 @@ func init() {
 	schema.Register[*ApprovalInfo]()
 }
 
+// 工具包装,可以执行中断
+
 type InvokableApprovableTool struct {
 	tool.InvokableTool
 }
@@ -53,6 +55,8 @@ type InvokableApprovableTool struct {
 func (i InvokableApprovableTool) Info(ctx context.Context) (*schema.ToolInfo, error) {
 	return i.InvokableTool.Info(ctx)
 }
+
+// 自定义工具包装类,效果就是在执行到该工具时,会进行中断,
 
 func (i InvokableApprovableTool) InvokableRun(ctx context.Context, argumentsInJSON string,
 	opts ...tool.Option) (string, error) {
@@ -82,7 +86,7 @@ func (i InvokableApprovableTool) InvokableRun(ctx context.Context, argumentsInJS
 	if !hasData {
 		return "", fmt.Errorf("tool '%s' resumed with no data", toolInfo.Name)
 	}
-
+	//当中断被恢复时,且用户同意继续执行,执行真正的InvokableRun
 	if data.Approved {
 		return i.InvokableTool.InvokableRun(ctx, storedArguments, opts...)
 	}

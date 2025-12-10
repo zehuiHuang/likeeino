@@ -47,9 +47,9 @@ func NewChatModel() model.ToolCallingChatModel {
 	if modelType == "ark" {
 		cm, err := ark.NewChatModel(context.Background(), &ark.ChatModelConfig{
 			// Add Ark-specific configuration from environment variables
-			APIKey:  os.Getenv("ARK_API_KEY"),
-			Model:   os.Getenv("ARK_MODEL"),
-			BaseURL: os.Getenv("ARK_BASE_URL"),
+			APIKey: os.Getenv("ARK_API_KEY"),
+			Model:  os.Getenv("ARK_MODEL"),
+			//BaseURL: os.Getenv("ARK_BASE_URL"),
 			Thinking: &arkModel.Thinking{
 				Type: arkModel.ThinkingTypeDisabled,
 			},

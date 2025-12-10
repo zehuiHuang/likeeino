@@ -18,6 +18,7 @@ import (
 
 func main() {
 	ctx := context.Background()
+	//创建机票agent
 	a := NewTicketBookingAgent()
 	runner := adk.NewRunner(ctx, adk.RunnerConfig{
 		EnableStreaming: true, // you can disable streaming here
@@ -85,6 +86,7 @@ func main() {
 	// In the real world, the original `Runner.Run/Query` and the subsequent `Runner.ResumeWithParams`
 	// can happen in different processes or machines, as long as you use the same `CheckPointID`,
 	// and you provided a distributed `CheckPointStore` when creating the `Runner` instance.
+	//恢复执行,即传入检查点ID和恢复标识,并将修改的参数apResult传入
 	iter, err := runner.ResumeWithParams(ctx, "1", &adk.ResumeParams{
 		Targets: map[string]any{
 			interruptID: apResult,

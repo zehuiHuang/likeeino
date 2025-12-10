@@ -35,10 +35,14 @@ type ReviewEditInfo struct {
 
 // ReviewEditResult is the result of the user's review.
 type ReviewEditResult struct {
+	//参数
 	EditedArgumentsInJSON *string
-	NoNeedToEdit          bool
-	Disapproved           bool
-	DisapproveReason      *string
+	//不需要更改
+	NoNeedToEdit bool
+	//不批准的
+	Disapproved bool
+	//不批准原因
+	DisapproveReason *string
 }
 
 func (re *ReviewEditInfo) String() string {
