@@ -1,3 +1,5 @@
+### 注意,如果您想要执行案例,需要提供一个.env的文件,里面主要配置一些大模型或trace相关的的配置信息
+
 eino官网地址:https://www.cloudwego.io/zh/docs/eino/
 
 # agent: reactAgent、workflowAgents、multiAgent
@@ -9,8 +11,14 @@ eino官网地址:https://www.cloudwego.io/zh/docs/eino/
 定制化流水线,按照顺序严格执行,常用场景比如CICD、数据迁移等
 
 # multiAgent:
-一种是集中式协调(Supervisor),中心化设计,主agent管理一批子agent,主agent可以根据情况来进行动态调整和任务分配给子agent;
-另外一种是结构化问题解决( Plan-Execute),
+1、集中式协调(Supervisor),中心化设计,主agent管理一批子agent,主agent可以根据情况来进行动态调整和任务分配给子agent:
+Supervisor 案例:adk/multiagent/supervisor
+
+2、结构化问题解决(Plan-Execute),种基于「规划-执行-反思」范式的多智能体协作框架,旨在解决复杂任务的分步拆解、执行与动态调整问题,主要包括:
+规划器、执行器和重规划器:
+Plan-Execute 案例:adk/multiagent/plan-execute-replan
+
+
 
 
 ^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^^_^各组件定义和使用
