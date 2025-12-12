@@ -8,7 +8,14 @@ eino官网地址:https://www.cloudwego.io/zh/docs/eino/
 模型和工具结合,是一个智能决策的大脑,常用场景知识问答、IT运维(可根据线索一步步定位问题)
 
 # workflowAgents: 
-定制化流水线,按照顺序严格执行,常用场景比如CICD、数据迁移等
+允许开发者以预设的流程来组织和执行多个子 Agent,定制化流水线,按照顺序严格执行,常用场景比如CICD、数据迁移等
+三种类型:
+1、SequentialAgent：按顺序依次执行子 Agent
+案例:
+
+2、LoopAgent：循环执行子 Agent 序列
+
+3、ParallelAgent：并发执行多个子 Agent
 
 # multiAgent:
 1、集中式协调(Supervisor),中心化设计,主agent管理一批子agent,主agent可以根据情况来进行动态调整和任务分配给子agent:
