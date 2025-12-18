@@ -3,7 +3,8 @@ module likeeino
 go 1.25.1
 
 require (
-	github.com/cloudwego/eino v0.7.7
+	github.com/chromedp/chromedp v0.14.2
+	github.com/cloudwego/eino v0.7.11
 	github.com/cloudwego/eino-examples v0.0.0-20251120123305-3ce08012fd39
 	github.com/cloudwego/eino-examples/quickstart/eino_assistant v0.0.0-20251120123305-3ce08012fd39
 	github.com/cloudwego/eino-ext/callbacks/apmplus v0.0.1
@@ -14,7 +15,7 @@ require (
 	github.com/cloudwego/eino-ext/components/embedding/ark v0.0.0-20250225083118-fd27d80f189c
 	github.com/cloudwego/eino-ext/components/indexer/redis v0.0.0-20250225083118-fd27d80f189c
 	github.com/cloudwego/eino-ext/components/model/ark v0.1.47
-	github.com/cloudwego/eino-ext/components/model/deepseek v0.0.0-20251121095553-9c4349cc3e46
+	github.com/cloudwego/eino-ext/components/model/deepseek v0.1.1
 	github.com/cloudwego/eino-ext/components/model/ollama v0.1.6
 	github.com/cloudwego/eino-ext/components/model/openai v0.1.5
 	github.com/cloudwego/eino-ext/components/retriever/redis v0.0.0-20250225083118-fd27d80f189c
@@ -45,6 +46,8 @@ require (
 	github.com/bytedance/sonic/loader v0.4.0 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/chromedp/cdproto v0.0.0-20250724212937-08a3db8b4327 // indirect
+	github.com/chromedp/sysutil v1.1.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/cloudwego/eino-ext/libs/acl/langfuse v0.0.0-20250113033825-eb19b2b6b386 // indirect
 	github.com/cloudwego/eino-ext/libs/acl/openai v0.1.2 // indirect
@@ -61,8 +64,12 @@ require (
 	github.com/eino-contrib/ollama v0.1.0 // indirect
 	github.com/evanphx/json-patch v0.5.2 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/go-json-experiment/json v0.0.0-20250725192818-e39067aee2d2 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/gobwas/httphead v0.1.0 // indirect
+	github.com/gobwas/pool v0.2.1 // indirect
+	github.com/gobwas/ws v1.4.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/goph/emperror v0.17.2 // indirect
