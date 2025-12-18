@@ -29,7 +29,7 @@ import (
 	"github.com/google/uuid"
 	redisCli "github.com/redis/go-redis/v9"
 
-	redispkg "github.com/cloudwego/eino-examples/quickstart/eino_assistant/pkg/redis"
+	redispkg "likeeino/pkg/redis"
 )
 
 func init() {
@@ -72,7 +72,7 @@ func newIndexer(ctx context.Context) (idr indexer.Indexer, err error) {
 			}, nil
 		},
 	}
-
+	//向量模型
 	embeddingIns11, err := newEmbedding(ctx)
 	if err != nil {
 		return nil, err

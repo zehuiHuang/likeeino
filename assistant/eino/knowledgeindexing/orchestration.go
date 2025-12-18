@@ -30,11 +30,13 @@ func BuildKnowledgeIndexing(ctx context.Context) (r compose.Runnable[document.So
 		RedisIndexer     = "RedisIndexer"
 	)
 	g := compose.NewGraph[document.Source, []string]()
+	//文件加载器
 	fileLoaderKeyOfLoader, err := newLoader(ctx)
 	if err != nil {
 		return nil, err
 	}
 	_ = g.AddLoaderNode(FileLoader, fileLoaderKeyOfLoader)
+	//文件切割器,将文件分割(为存入向量库做准备)
 	markdownSplitterKeyOfDocumentTransformer, err := newDocumentTransformer(ctx)
 	if err != nil {
 		return nil, err

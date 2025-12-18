@@ -4,7 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/joho/godotenv"
 	"log"
+	"net/http"
 	"time"
 
 	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2"
@@ -19,6 +21,18 @@ func main() {
 		Region:     duckduckgo.RegionWT,
 		Timeout:    10 * time.Second,
 	}
+
+	// 创建自定义的 Transport，设置代理
+	transport := &http.Transport{
+		Proxy: http.ProxyFromEnvironment,
+	}
+	// 创建自定义的 HTTP Client
+	httpClient := &http.Client{
+		Transport: transport,
+		Timeout:   30 * time.Second, // 设置超时时间
+	}
+	// 将自定义的 HTTP Client 赋值给 Config
+	config.HTTPClient = httpClient
 
 	// Create search client
 	tool, err := duckduckgo.NewTextSearchTool(ctx, config)
@@ -59,4 +73,11 @@ func main() {
 	}
 	fmt.Println("")
 	fmt.Println("==============")
+}
+
+func init() {
+	// 加载 .env 文件
+	if err := godotenv.Load(); err != nil {
+		log.Printf("Warning: Error loading .env file: %v\n", err)
+	}
 }

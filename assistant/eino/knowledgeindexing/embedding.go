@@ -24,6 +24,7 @@ import (
 	"github.com/cloudwego/eino/components/embedding"
 )
 
+// 向量模型
 func newEmbedding(ctx context.Context) (eb embedding.Embedder, err error) {
 	// TODO Modify component configuration here.
 	config := &ark.EmbeddingConfig{
