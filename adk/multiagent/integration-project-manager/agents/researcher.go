@@ -24,6 +24,7 @@ type webSearchOutput struct {
 }
 
 func NewResearchAgent(ctx context.Context, tcm model.ToolCallingChatModel) (adk.Agent, error) {
+	//web search 的检索工具
 	webSearchTool, err := utils.InferTool(
 		"web_search",
 		"web search tool",
@@ -83,9 +84,10 @@ func WithNewInput(input string) tool.Option {
 }
 
 type AskForClarificationInput struct {
-	Question string `json:"question" jsonschema_description:"The specific question you want to ask the user to get the missing information"`
+	Question string `json:"question" jsonschema_description:"您想向用户提出的具体问题，以获取缺失的信息"`
 }
 
+// 自定义工具,若用户提问模糊,支持中断并要求用户补充信息
 func newAskForClarificationTool() tool.InvokableTool {
 	t, err := utils.InferOptionableTool(
 		"ask_for_clarification",
