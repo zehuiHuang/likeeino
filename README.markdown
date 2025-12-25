@@ -1,3 +1,13 @@
+###  环境依赖
+
+```shell
+#milvus 容器启动
+wget https://github.com/milvus-io/milvus/releases/download/v2.6.7/milvus-standalone-docker-compose.yml -O docker-compose.yml
+sudo docker compose up -d
+```
+
+
+
 ### 注意,如果您想要执行案例,需要提供一个.env的文件,里面主要配置一些大模型或trace相关的的配置信息
 
 eino官网地址:https://www.cloudwego.io/zh/docs/eino/

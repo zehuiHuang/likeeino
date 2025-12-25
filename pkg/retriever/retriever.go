@@ -50,7 +50,7 @@ func NewRetriever(ctx context.Context) (rtr retriever.Retriever, err error) {
 			return resp, nil
 		},
 	}
-	embeddingIns11, err := newEmbedding(ctx)
+	embeddingIns11, err := NewEmbedding(ctx)
 	if err != nil {
 		return nil, err
 	}

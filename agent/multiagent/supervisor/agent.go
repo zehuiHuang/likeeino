@@ -3,9 +3,10 @@ package supervisor
 import (
 	"context"
 	"fmt"
-	"github.com/cloudwego/eino-examples/adk/common/prints"
 	"github.com/joho/godotenv"
+	"likeeino/adk/common/prints"
 	"likeeino/pkg/model"
+	tools "likeeino/pkg/tool/flow"
 	"likeeino/pkg/trace"
 	"log"
 	"time"
@@ -14,8 +15,6 @@ import (
 	"github.com/cloudwego/eino/adk/prebuilt/supervisor"
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/compose"
-
-	"github.com/cloudwego/eino-examples/flow/agent/multiagent/plan_execute/tools"
 )
 
 func buildSearchAgent(ctx context.Context) (adk.Agent, error) {

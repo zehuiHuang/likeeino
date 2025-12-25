@@ -9,7 +9,6 @@ import (
 	"github.com/joho/godotenv"
 	"io/fs"
 	"likeeino/assistant/eino/knowledgeindexing"
-	"likeeino/pkg/env"
 	"log"
 	"os"
 	"path/filepath"
@@ -20,10 +19,10 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func init() {
-	// check some essential envs
-	env.MustHasEnvs("ARK_API_KEY", "ARK_EMBEDDING_MODEL")
-}
+//func init() {
+//	// check some essential envs
+//	env.MustHasEnvs("ARK_API_KEY", "ARK_EMBEDDING_MODEL")
+//}
 
 // 将markdown文件写入到向量数据库,即文件向量化
 
@@ -45,8 +44,16 @@ func main() {
 		handlers = append(handlers, clc.NewLoopHandler(client))
 	}
 	callbacks.AppendGlobalHandlers(handlers...)
-	//替换成自己的绝对路径
-	err := indexMarkdownFiles(ctx, "/Users/huangzehui/learn/learn/likeeino/example/knowledgeindexing/eino-docs")
+	//获取当前路径
+	wd, err := os.Getwd()
+	if err != nil {
+		fmt.Println("获取工作目录失败:", err)
+		return
+	}
+	fileDir := filepath.Join(wd, "example/knowledgeindexing/eino-docs")
+
+	err = indexMarkdownFiles(ctx, fileDir)
+	//err := indexMarkdownFiles(ctx, "/Users/huangzehui/learn/learn/likeeino/example/knowledgeindexing/eino-docs")
 	if err != nil {
 		panic(err)
 	}

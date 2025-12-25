@@ -1,19 +1,3 @@
-/*
- * Copyright 2025 CloudWeGo Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package knowledgeindexing
 
 import (
@@ -27,7 +11,8 @@ func BuildKnowledgeIndexing(ctx context.Context) (r compose.Runnable[document.So
 	const (
 		FileLoader       = "FileLoader"
 		MarkdownSplitter = "MarkdownSplitter"
-		RedisIndexer     = "RedisIndexer"
+		//RedisIndexer     = "RedisIndexer"
+		MilvusIndexer = "MilvusIndexer"
 	)
 	g := compose.NewGraph[document.Source, []string]()
 	//文件加载器
@@ -42,15 +27,15 @@ func BuildKnowledgeIndexing(ctx context.Context) (r compose.Runnable[document.So
 		return nil, err
 	}
 	_ = g.AddDocumentTransformerNode(MarkdownSplitter, markdownSplitterKeyOfDocumentTransformer)
-	redisIndexerKeyOfIndexer, err := newIndexer(ctx)
+	milvusIndexerKeyOfIndexer, err := newMilvusIndexer(ctx)
 	if err != nil {
 		return nil, err
 	}
-	_ = g.AddIndexerNode(RedisIndexer, redisIndexerKeyOfIndexer)
+	_ = g.AddIndexerNode(MilvusIndexer, milvusIndexerKeyOfIndexer)
 	_ = g.AddEdge(compose.START, FileLoader)
 	_ = g.AddEdge(FileLoader, MarkdownSplitter)
-	_ = g.AddEdge(MarkdownSplitter, RedisIndexer)
-	_ = g.AddEdge(RedisIndexer, compose.END)
+	_ = g.AddEdge(MarkdownSplitter, MilvusIndexer)
+	_ = g.AddEdge(MilvusIndexer, compose.END)
 
 	r, err = g.Compile(ctx, compose.WithGraphName("KnowledgeIndexing"), compose.WithNodeTriggerMode(compose.AnyPredecessor))
 	if err != nil {

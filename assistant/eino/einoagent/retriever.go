@@ -22,9 +22,9 @@ import (
 	"os"
 	"strconv"
 
-	redispkg "github.com/cloudwego/eino-examples/quickstart/eino_assistant/pkg/redis"
 	"github.com/cloudwego/eino/schema"
 	redisCli "github.com/redis/go-redis/v9"
+	redispkg "likeeino/pkg/redis"
 
 	"github.com/cloudwego/eino-ext/components/retriever/redis"
 	"github.com/cloudwego/eino/components/retriever"
