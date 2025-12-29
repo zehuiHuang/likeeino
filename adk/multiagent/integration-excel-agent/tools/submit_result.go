@@ -32,6 +32,7 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+// 最后一步会执行该工具,生产final_report.json文件
 var (
 	submitResultToolInfo = &schema.ToolInfo{
 		Name: "submit_result",
@@ -121,6 +122,7 @@ func (t *submitResultTool) InvokableRun(ctx context.Context, argumentsInJSON str
 	}
 
 	_ = t.op.WriteFile(ctx, filepath.Join(wd, "final_report.json"), argumentsInJSON)
+	fmt.Println("submitResultTool开始将计划写入md文件---------")
 	_ = generic.Write2PlanMD(ctx, t.op, wd, fullPlan)
 	return utils.ToJSONString(&generic.FullPlan{AgentName: compose.END}), nil
 }

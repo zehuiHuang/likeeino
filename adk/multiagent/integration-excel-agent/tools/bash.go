@@ -19,6 +19,7 @@ package tools
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"likeeino/adk/multiagent/integration-excel-agent/utils"
 	"strings"
 
@@ -30,14 +31,14 @@ import (
 var (
 	bashToolInfo = &schema.ToolInfo{
 		Name: "bash",
-		Desc: `Run commands in a bash shell
-* When invoking this tool, the contents of the \"command\" parameter does NOT need to be XML-escaped.
-* You don't have access to the internet via this tool.
-* You do have access to a mirror of common linux and python packages via apt and pip.
-* State is persistent across command calls and discussions with the user.
-* To inspect a particular line range of a file, e.g. lines 10-25, try 'sed -n 10,25p /path/to/the/file'.
-* Please avoid commands that may produce a very large amount of output.
-* Please run long lived commands in the background, e.g. 'sleep 10 &' or start a server in the background.`,
+		Desc: `在bash shell中运行命令
+* 调用此工具时，不需要对“command”参数的内容进行XML转义。
+* 您无法通过此工具访问互联网。
+* 您确实可以通过apt和pip访问常见linux和python包的镜像。
+* 状态在命令调用和与用户的讨论中是持久的。
+* 要检查文件的特定行范围，例如第10-25行，请尝试“sed-n 10,25p/path/To/file”。
+* 请避免使用可能产生大量输出的命令。
+* 请在后台运行长期命令，例如“sleep 10&”或在后台启动服务器。`,
 		ParamsOneOf: schema.NewParamsOneOfByParams(map[string]*schema.ParameterInfo{
 			"command": {
 				Type:     "string",
@@ -68,6 +69,8 @@ type shellInput struct {
 func (b *bashTool) InvokableRun(ctx context.Context, argumentsInJSON string, opts ...tool.Option) (string, error) {
 	input := &shellInput{}
 	err := json.Unmarshal([]byte(argumentsInJSON), input)
+	//执行脚本命令
+	fmt.Println("///////执行脚本命令///////:" + input.Command)
 	if err != nil {
 		return "", err
 	}

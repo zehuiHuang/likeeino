@@ -39,7 +39,7 @@ import (
 // NewReportAgent 报告agent
 func NewReportAgent(ctx context.Context, operator commandline.Operator) (adk.Agent, error) {
 	cm, err := utils.NewChatModel(ctx,
-		utils.WithMaxTokens(15000),
+		utils.WithMaxTokens(12000),
 		utils.WithTemperature(0.1),
 		utils.WithTopP(1),
 	)
@@ -80,7 +80,6 @@ func NewReportAgent(ctx context.Context, operator commandline.Operator) (adk.Age
 	ra, err := adk.NewChatModelAgent(ctx, &adk.ChatModelAgentConfig{
 		Name: "Report",
 		Description: `
-机翻 · 通用领域
 这是一个报告代理，负责从给定的file_path读取文件，并根据其内容生成全面的报告。
 其工作流程包括读取文件、分析数据和信息、总结关键发现和见解，以及生成一份清晰简洁的报告来解决用户的查询。
 如果文件包含图表或可视化，代理将在报告中适当地引用它们。当需要从指定文件生成详细的数据驱动报告时，React代理应调用此子代理。`,

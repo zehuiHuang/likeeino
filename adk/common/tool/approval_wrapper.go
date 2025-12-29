@@ -67,6 +67,7 @@ func (i InvokableApprovableTool) InvokableRun(ctx context.Context, argumentsInJS
 	}
 
 	wasInterrupted, _, storedArguments := compose.GetInterruptState[string](ctx)
+	//初始调用、中断并等待批准
 	if !wasInterrupted { // initial invocation, interrupt and wait for approval
 		return "", compose.StatefulInterrupt(ctx, &ApprovalInfo{
 			ToolName:        toolInfo.Name,
@@ -76,6 +77,7 @@ func (i InvokableApprovableTool) InvokableRun(ctx context.Context, argumentsInJS
 	}
 
 	isResumeTarget, hasData, data := compose.GetResumeContext[*ApprovalResult](ctx)
+	//中断但未明确恢复，再次中断并等待批准
 	if !isResumeTarget { // was interrupted but not explicitly resumed, reinterrupt and wait for approval again
 		return "", compose.StatefulInterrupt(ctx, &ApprovalInfo{
 			ToolName:        toolInfo.Name,

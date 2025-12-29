@@ -18,6 +18,7 @@ package planner
 
 import (
 	"context"
+	"fmt"
 	"likeeino/adk/multiagent/integration-excel-agent/agents"
 	"likeeino/adk/multiagent/integration-excel-agent/generic"
 	"likeeino/adk/multiagent/integration-excel-agent/params"
@@ -45,7 +46,7 @@ var (
 - 对于将执行此步骤的代理，每个步骤都必须是清晰简洁的说明。
 
 **3. Plan Decomposition Principles:**
-- **Granularity:** Break down the task into the smallest possible logical steps. For example, instead of "process the data," use "read the Excel file," "filter out rows with missing values," "calculate the average of the 'Sales' column," etc.
+- **Granularity:** 将任务分解为尽可能小的逻辑步骤。例如，不要“处理数据”，而是使用“读取Excel文件”、“过滤掉缺少值的行”、“计算“销售额”列的平均值”等。
 - **Sequence:** 这些步骤应该按照正确的执行顺序进行。
 - **Clarity:** 每个步骤都应该是明确的，并且让代理更容易理解的去执行。
 
@@ -55,13 +56,13 @@ var (
 {
   "steps": [
     {
-      "instruction": "Read the 'sales_data.xlsx' file into a pandas DataFrame."
+      "instruction": "将“sales_data.xlsx”文件读入pandas DataFrame。"
     },
     {
-      "instruction": "Group the DataFrame by 'Product Category' and calculate the mean of the 'Sales' column for each group."
+      "instruction": "按“产品类别”对DataFrame进行分组，并计算每个组的“销售额”列的平均值。"
     },
     {
-      "instruction": "Summarize the average sales for each product category and present the results in a table."
+      "instruction": "总结每个产品类别的平均销售额，并将结果显示在表格中。"
     }
   ]
 }
@@ -74,7 +75,7 @@ var (
 		schema.UserMessage(`
 User Query: {{ user_query }}
 Current Time: {{ current_time }}
-File Preview (If file has xlsx extension, the preview will provide the specific contents of the first 20 lines, otherwise only the file path will be provided):
+File Preview (如果文件扩展名为xlsx，预览将提供前20行的具体内容，否则只提供文件路径):
 {{ file_preview }}
 `),
 	)
@@ -127,7 +128,8 @@ func newPlannerChatModel(ctx context.Context) (model.ToolCallingChatModel, error
 func newPlannerInputGen(plannerPrompt prompt.ChatTemplate) planexecute.GenPlannerModelInputFn {
 	return func(ctx context.Context, userInput []adk.Message) ([]adk.Message, error) {
 		pf, _ := params.GetTypedContextParams[string](ctx, params.UserAllPreviewFilesSessionKey)
-
+		fmt.Println("Planner的输入函数newPlannerInputGen的上下文pf:" + pf)
+		fmt.Println("Planner的输入函数newPlannerInputGen的参数userInput:" + utils.FormatInput(userInput))
 		msgs, err := plannerPrompt.Format(ctx, map[string]any{
 			"user_query":   utils.FormatInput(userInput),
 			"current_time": utils.GetCurrentTime(),

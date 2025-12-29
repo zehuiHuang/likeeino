@@ -21,6 +21,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"likeeino/adk/multiagent/integration-excel-agent/utils"
+	"strconv"
 	"strings"
 
 	"github.com/cloudwego/eino-ext/components/tool/commandline"
@@ -31,7 +32,7 @@ import (
 var (
 	readFileToolInfo = &schema.ToolInfo{
 		Name: "read_file",
-		Desc: `This tool is used for reading file content, with parameters including the file path, starting line, and the number of lines to read. Content will be truncated if it is too long.  
+		Desc: `此工具用于读取文件内容，参数包括文件路径、起始行和要读取的行数。如果内容太长，将被截断。  
 For xlsx files, each sheet's information will be returned sequentially upon a single call. If multiple sheets' information is needed, only one call is required. The call will return the headers, merged cell information, and the first n_rows of data for each sheet.`,
 		ParamsOneOf: schema.NewParamsOneOfByParams(map[string]*schema.ParameterInfo{
 			"path": {
@@ -84,6 +85,8 @@ func (r *readFile) InvokableRun(ctx context.Context, argumentsInJSON string, opt
 	if input.NRows <= 0 {
 		input.NRows = 20
 	}
+
+	fmt.Println("/////read工具//////:" + input.Path + "和" + strconv.Itoa(input.StartRow) + "和" + strconv.Itoa(input.NRows))
 	o := tool.GetImplSpecificOptions(&options{op: r.op})
 	cmd := fmt.Sprintf("python3 -c \"import sys; lines = (line for idx, line in enumerate(open(sys.argv[1], encoding='utf-8')) if %d <= idx < %d); print(''.join(lines))\" %s",
 		input.StartRow, input.StartRow+input.NRows, input.Path)

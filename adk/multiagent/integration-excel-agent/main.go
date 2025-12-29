@@ -18,6 +18,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/joho/godotenv"
 	"likeeino/adk/common/prints"
 	"likeeino/adk/common/trace"
@@ -41,13 +42,13 @@ import (
 
 func main() {
 	// Set your own query here. e.g.
-	// query := schema.UserMessage("统计附件文件中推荐的小说名称及推荐次数，并将结果写到文件中。凡是带有《》内容都是小说名称，形成表格，表头为小说名称和推荐次数，同名小说只列一行，推荐次数相加")
+	query := schema.UserMessage("统计附件文件中推荐的小说名称及推荐次数，并将结果写到文件中。凡是带有《》内容都是小说名称，形成表格，表头为小说名称和推荐次数，同名小说只列一行，推荐次数相加")
 	// query := schema.UserMessage("Count the recommended novel names and recommended times in the attachment file, and write the results into the file. The content with "" is the name of the novel, forming a table. The header is the name of the novel and the number of recommendations. The novels with the same name are listed in one row, and the number of recommendations is added")
 
 	// query := schema.UserMessage("读取 模拟出题.csv 中的表格内容，规范格式将题目、答案、解析、选项放在同一行，简答题只把答案写入解析即可")
 	// query := schema.UserMessage("Read the table content in the 模拟出题.csv, put the question, answer, resolution and options in the same line in a standardized format, and simply write the answer into the resolution")
 
-	query := schema.UserMessage("请帮我将 questions.csv 表格中的第一列提取到一个新的 csv 中")
+	//query := schema.UserMessage("请帮我将 questions.csv 表格中的第一列提取到一个新的 csv 中")
 	// query := schema.UserMessage("Please help me extract the first column in question.csv table into a new csv")
 
 	ctx := context.Background()
@@ -62,10 +63,11 @@ func main() {
 
 	// uuid as task id
 	uuid := uuid.New().String()
+	fmt.Println("uuid:-----------", uuid)
 	//创建runner
 	runner := adk.NewRunner(ctx, adk.RunnerConfig{
 		Agent:           agent,
-		EnableStreaming: true,
+		EnableStreaming: false, //todo 流式目前测试还有问题,待处理
 	})
 	//获取当前路径
 	wd, err := os.Getwd()

@@ -33,7 +33,7 @@ import (
 
 func newCodeAgent(ctx context.Context, operator commandline.Operator) (adk.Agent, error) {
 	cm, err := utils.NewChatModel(ctx,
-		utils.WithMaxTokens(14125),
+		utils.WithMaxTokens(12000),
 		utils.WithTemperature(float32(1)),
 		utils.WithTopP(float32(1)),
 	)

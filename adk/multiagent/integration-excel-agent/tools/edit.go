@@ -19,22 +19,24 @@ package tools
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 
 	"github.com/cloudwego/eino-ext/components/tool/commandline"
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/schema"
 )
 
+// 编辑文件工具
 var (
 	editFileToolInfo = &schema.ToolInfo{
 		Name: "edit_file",
-		Desc: `This is a tool for editing file, with parameters including the file path and the content to be edited.
-During task processing, if there is a need to create a file or overwrite file content, this tool can be used.
+		Desc: `这是一个用于编辑文件的工具，参数包括文件路径和要编辑的内容。
+在任务处理过程中，如果需要创建文件或覆盖文件内容，可以使用此工具。
 
 Notice:
-- If the file does not exist, this tool creates it with permissions perm (0666); otherwise it will truncates it before writing, without changing permissions.
-- When using this tool, be sure that the file content is the complete full text; otherwise, it may cause loss or errors in the file content.
-- Only supports writing to text file s; writing to xls/xlsx files is not supported.`,
+- 如果文件不存在，此工具将使用权限perm创建它（0666）；否则，它将在写入之前截断它，而不更改权限。
+- 使用此工具时，请确保文件内容是完整的全文；否则，可能会导致文件内容丢失或错误。
+- 仅支持写入文本文件；不支持写入xls/xlsx文件。`,
 		ParamsOneOf: schema.NewParamsOneOfByParams(map[string]*schema.ParameterInfo{
 			"path": {
 				Type:     schema.String,
@@ -73,6 +75,7 @@ func (e *editFile) InvokableRun(ctx context.Context, argumentsInJSON string, opt
 	if err != nil {
 		return "", err
 	}
+	fmt.Println("//////edit工具//////:" + input.Path + "和" + input.Content)
 	if len(input.Path) == 0 {
 		return "path can not be empty", nil
 	}

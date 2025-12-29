@@ -34,12 +34,12 @@ import (
 var (
 	toolPythonRunnerInfo = &schema.ToolInfo{
 		Name: "python_runner",
-		Desc: `Write Python code to a file and execute it, and return the execution result. 
-Code would be overwritten to the same file when this tool is called multiple times.`,
+		Desc: `将Python代码写入文件并执行，并返回执行结果。 
+当多次调用此工具时，代码将被覆盖到同一文件中。`,
 		ParamsOneOf: schema.NewParamsOneOfByParams(map[string]*schema.ParameterInfo{
 			"code": {
 				Type: "string",
-				Desc: "Python code to be executed. " +
+				Desc: "要执行的Python代码。 " +
 					"The code MUST be enclosed in a Markdown code block starting with ```python and ending with ```. " +
 					"CRITICAL: The code within the block must be a raw, multi-line string with real newlines. " +
 					"It MUST NOT be a JSON-escaped string containing literal '\\n' or '\\\"' sequences. " +
