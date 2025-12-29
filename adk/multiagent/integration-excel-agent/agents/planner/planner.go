@@ -34,24 +34,24 @@ import (
 
 var (
 	plannerPromptTemplate = prompt.FromMessages(schema.Jinja2,
-		schema.SystemMessage(`You are an expert planner specializing in Excel data processing tasks. Your goal is to understand user requirements and break them down into a clear, step-by-step plan.
+		schema.SystemMessage(`您是专门从事Excel数据处理任务的专家规划师。你的目标是了解用户需求，并将其分解为一个清晰的、循序渐进的计划。
 
-**1. Understanding the Goal:**
-- Carefully analyze the user's request to determine the ultimate objective.
-- Identify the input data (Excel files) and the desired output format.
+**1. 理解目标:**
+- 仔细分析用户的请求，以确定最终目标。
+- 识别输入数据（Excel文件）和所需的输出格式。
 
-**2. Deliverables:**
-- The final output should be a JSON object representing the plan, containing a list of steps.
-- Each step must be a clear and concise instruction for the agent that will execute this step.
+**2. 交付物:**
+- 最终输出应该是一个表示计划的JSON对象，其中包含一系列步骤。
+- 对于将执行此步骤的代理，每个步骤都必须是清晰简洁的说明。
 
 **3. Plan Decomposition Principles:**
 - **Granularity:** Break down the task into the smallest possible logical steps. For example, instead of "process the data," use "read the Excel file," "filter out rows with missing values," "calculate the average of the 'Sales' column," etc.
-- **Sequence:** The steps should be in the correct order of execution.
-- **Clarity:** Each step should be unambiguous and easy for the agent that will execute this step to understand.
+- **Sequence:** 这些步骤应该按照正确的执行顺序进行。
+- **Clarity:** 每个步骤都应该是明确的，并且让代理更容易理解的去执行。
 
-**4. Output Format (Few-shot Example):**
-Here is an example of a good plan:
-User Request: "Please calculate the average sales for each product category in the attached 'sales_data.xlsx' file and generate a report."
+**4.输出格式 (Few-shot Example):**
+这是一个关于计划很好的例子:
+用户请求：“请计算附件'sales_data.xlsx'文件中每个产品类别的平均销售额，并生成报告。”
 {
   "steps": [
     {
@@ -67,9 +67,9 @@ User Request: "Please calculate the average sales for each product category in t
 }
 
 **5. Restrictions:**
-- Do not generate code directly in the plan.
-- Ensure that the plan is logical and achievable.
-- The final step should always be to generate a report or provide the final result.
+- 不要直接在计划中生成代码。
+- 确保该计划合乎逻辑且可实现。
+- 最后一步应该始终是生成报告或提供最终结果。
 `),
 		schema.UserMessage(`
 User Query: {{ user_query }}
@@ -85,11 +85,11 @@ func NewPlanner(ctx context.Context, op commandline.Operator) (adk.Agent, error)
 	if err != nil {
 		return nil, err
 	}
-
+	//生成计划器代理
 	a, err := planexecute.NewPlanner(ctx, &planexecute.PlannerConfig{
-		//大模型格式化输出
+		//指定大模型 进行严格的格式化输出,格式在cm中定义
 		ChatModelWithFormattedOutput: cm,
-		//为计划器生成输入消息的函数
+		//为计划器生成输入消息的函数(包括背景描述、用户问题、文件路径、时间等)
 		GenInputFn: newPlannerInputGen(plannerPromptTemplate),
 		//作用?
 		NewPlan: func(ctx context.Context) planexecute.Plan {
@@ -99,11 +99,12 @@ func NewPlanner(ctx context.Context, op commandline.Operator) (adk.Agent, error)
 	if err != nil {
 		return nil, err
 	}
-
+	//包装函数
 	return agents.NewWrite2PlanMDWrapper(a, op), nil
 }
 
 func newPlannerChatModel(ctx context.Context) (model.ToolCallingChatModel, error) {
+	//将自定义的结构ParamsOneOf 转化为model可接受的结构,该结构强制大模型按照定义好的格式进行返回
 	sc, err := generic.PlanToolInfo.ToJSONSchema()
 	if err != nil {
 		return nil, err

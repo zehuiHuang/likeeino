@@ -53,6 +53,7 @@ func (l *LocalOperator) Exists(ctx context.Context, path string) (bool, error) {
 }
 
 func (l *LocalOperator) RunCommand(ctx context.Context, command []string) (*commandline.CommandOutput, error) {
+	//从上下文中获取工作路径
 	wd, ok := params.GetTypedContextParams[string](ctx, params.WorkDirSessionKey)
 	if !ok {
 		return nil, fmt.Errorf("work dir not found")

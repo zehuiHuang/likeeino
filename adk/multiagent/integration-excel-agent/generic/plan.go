@@ -23,10 +23,13 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+// Step 和 Plan为规划代理的结构体
 type Step struct {
 	Index int    `json:"index"`
 	Desc  string `json:"desc"`
 }
+
+// 实现了 Plan的接口
 
 type Plan struct {
 	Steps []Step `json:"steps"`
@@ -53,7 +56,8 @@ func (p *Plan) UnmarshalJSON(bytes []byte) error {
 
 var PlanToolInfo = &schema.ToolInfo{
 	Name: "create_plan",
-	Desc: "Generates a structured, step-by-step execution plan to solve a given complex task. Each step in the plan must be assigned to a specialized agent and must have a clear, actionable description.",
+	Desc: "生成一个结构化的、循序渐进的执行计划，以解决给定的复杂任务。计划中的每个步骤都必须分配给一个专门的代理，并且必须有一个清晰、可操作的描述。",
+	//定义调用该工具时的入参结构
 	ParamsOneOf: schema.NewParamsOneOfByParams(
 		map[string]*schema.ParameterInfo{
 			"steps": {
@@ -63,17 +67,19 @@ var PlanToolInfo = &schema.ToolInfo{
 					SubParams: map[string]*schema.ParameterInfo{
 						"index": {
 							Type:     schema.Integer,
-							Desc:     "The sequential number of this step in the overall plan. **Must start from 1 and increment by exactly 1 for each subsequent step.**",
+							Desc:     "步骤在整体计划中的顺序号（必须从1开始，每个后续步骤递增1)",
 							Required: true,
 						},
 						"desc": {
-							Type:     schema.String,
-							Desc:     "A clear, concise, and actionable description of the specific task to be performed in this step. It should be a direct instruction for the assigned agent.",
+							Type: schema.String,
+							//Desc:     "A clear, concise, and actionable description of the specific task to be performed in this step. It should be a direct instruction for the assigned agent.",
+							Desc:     "此步骤中要执行的具体任务的清晰、简洁和可操作的描述。这应该是对指定代理人的直接指示。",
 							Required: true,
 						},
 					},
 				},
-				Desc:     "different steps to follow, should be in sorted order",
+				//Desc:     "different steps to follow, should be in sorted order",
+				Desc:     "要遵循的不同步骤应按顺序排列",
 				Required: true,
 			},
 		},

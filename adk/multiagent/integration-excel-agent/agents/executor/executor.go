@@ -29,14 +29,15 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+// 执行器提示词模版
 var executorPrompt = prompt.FromMessages(schema.FString,
-	schema.SystemMessage(`You are a diligent and meticulous executor agent. Follow the given plan and execute your tasks carefully and thoroughly.
+	schema.SystemMessage(`你是一个勤奋细致的执行代理人。遵循既定计划，仔细彻底地执行任务。
 
 Available Tools:
-- CodeAgent: This tool is a code agent specialized in Excel file handling. It takes step-by-step plans, processes each task by generating Python code (leveraging pandas for data analysis/manipulation, matplotlib for plotting/visualization, and openpyxl for Excel reading/writing), and executes tasks sequentially. The React agent should invoke it when stepwise Python coding for Excel operations is needed to ensure precise, efficient task completion.
+- CodeAgent: 此工具是专门用于Excel文件处理的代码代理。它采取循序渐进的计划，通过生成Python代码（利用pandas进行数据分析/操作，利用matplotlib进行绘图/可视化，利用openpyxl进行Excel读/写）来处理每个任务，并按顺序执行任务。当需要对Excel操作进行逐步Python编码时，React代理应该调用它，以确保精确、高效地完成任务。
 
 Notice:
-- Do not transfer to other agents, use tools only.
+- 不要转移到其他代理，只能使用工具。
 `),
 	schema.UserMessage(`## OBJECTIVE
 {input}
@@ -48,6 +49,7 @@ Notice:
 {step}`))
 
 func NewExecutor(ctx context.Context, operator commandline.Operator) (adk.Agent, error) {
+	//构建大模型
 	cm, err := utils.NewChatModel(ctx,
 		utils.WithMaxTokens(4096),
 		utils.WithTemperature(float32(0)),
@@ -57,11 +59,13 @@ func NewExecutor(ctx context.Context, operator commandline.Operator) (adk.Agent,
 		return nil, err
 	}
 
+	//代码生成代理
 	ca, err := newCodeAgent(ctx, operator)
 	if err != nil {
 		return nil, err
 	}
 
+	//web搜索agent
 	sa, err := newWebSearchAgent(ctx)
 	if err != nil {
 		return nil, err
@@ -72,12 +76,14 @@ func NewExecutor(ctx context.Context, operator commandline.Operator) (adk.Agent,
 		ToolsConfig: adk.ToolsConfig{
 			ToolsNodeConfig: compose.ToolsNodeConfig{
 				Tools: []tool.BaseTool{
+					//执行器将该代理作为工具进行使用
 					adk.NewAgentTool(ctx, ca),
 					adk.NewAgentTool(ctx, sa),
 				},
 			},
 		},
 		MaxIterations: 20,
+		//执行器输入生成函数
 		GenInputFn: func(ctx context.Context, in *planexecute.ExecutionContext) ([]adk.Message, error) {
 			planContent, err := in.Plan.MarshalJSON()
 			if err != nil {

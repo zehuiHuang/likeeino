@@ -35,23 +35,22 @@ import (
 
 var (
 	replannerPromptTemplate = prompt.FromMessages(schema.Jinja2,
-		schema.SystemMessage(`You are an expert planner specializing in Excel data processing tasks. Your goal is to understand user requirements and break them down into a clear, step-by-step plan.
+		schema.SystemMessage(`您是专门从事Excel数据处理任务的专家规划师。你的目标是了解用户需求，并将其分解为一个清晰的、循序渐进的计划
 
-**1. Understanding the Goal:**
-- Carefully analyze the user's request to determine the ultimate objective.
-- Identify the input data (Excel files) and the desired output format.
+**1.理解目标:**
+- 仔细分析用户的请求，以确定最终目标。
+- 识别输入数据（Excel文件）和所需的输出格式。
 
-**2. Deliverables:**
-- The final output should be a JSON object representing the plan, containing a list of steps.
-- Each step must be a clear and concise instruction for the agent that will execute this step.
+**2. 交付物:**
+- 最终输出应该是一个表示计划的JSON对象，其中包含一系列步骤。
+- 对于将执行此步骤的代理，每个步骤都必须是清晰简洁的说明。
 
 **3. Plan Decomposition Principles:**
-- **Granularity:** Break down the task into the smallest possible logical steps. For example, instead of "process the data," use "read the Excel file," "filter out rows with missing values," "calculate the average of the 'Sales' column," etc.
-- **Sequence:** The steps should be in the correct order of execution.
-- **Clarity:** Each step should be unambiguous and easy for the for the agent that will execute this step to understand.
-
+- **粒度：**将任务分解为尽可能小的逻辑步骤。例如，不要“处理数据”，而是使用“读取Excel文件”、“过滤掉缺少值的行”、“计算“销售额”列的平均值”等。
+- **顺序：**步骤应按照正确的执行顺序进行。
+- **清晰度：**每个步骤都应该是明确的，并且易于执行此步骤的代理理解。
 **4. Output Format (Few-shot Example):**
-Here is an example of a good plan:
+	Here is an example of a good plan:
 User Request: "Please calculate the average sales for each product category in the attached 'sales_data.xlsx' file and generate a report."
 {
   "steps": [
@@ -67,14 +66,14 @@ User Request: "Please calculate the average sales for each product category in t
   ]
 }
 
-**5. Restrictions:**
-- Do not generate code directly in the plan.
-- Ensure that the plan is logical and achievable.
-- The final step should always be to generate a report or provide the final result.
+**5. 限制:**
+- 不要直接在计划中生成代码。
+- 确保该计划合乎逻辑且可实现。
+- 最后一步应该始终是生成报告或提供最终结果。
 
-**6. Replanning:**
-- If the current plan is complete, call the 'submit_result' tool.
-- If the plan needs to be modified or extended, call the 'create_plan' tool with the new plan.
+**6. 重新规划:**
+- 如果当前计划已完成，请调用“submit_result”工具。
+- 如果需要修改或扩展计划，请使用新计划调用“create_plan”工具。
 `),
 		schema.UserMessage(`
 User Query: {{ user_query }}
@@ -104,6 +103,7 @@ func NewReplanner(ctx context.Context, op commandline.Operator) (adk.Agent, erro
 		return nil, err
 	}
 
+	//创建重规划器agent
 	a, err := planexecute.NewReplanner(ctx, &planexecute.ReplannerConfig{
 		ChatModel:   cm,
 		PlanTool:    generic.PlanToolInfo,
@@ -128,6 +128,7 @@ func replannerInputGen(ctx context.Context, in *planexecute.ExecutionContext) ([
 	}
 
 	// remove the first step
+	//每次执行都移除第一步: 因为每次执行都会生成一个步骤，所以每次执行都移除第一步
 	plan.Steps = plan.Steps[1:]
 	planStr, err := sonic.MarshalString(plan)
 	if err != nil {

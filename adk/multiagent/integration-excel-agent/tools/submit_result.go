@@ -35,7 +35,7 @@ import (
 var (
 	submitResultToolInfo = &schema.ToolInfo{
 		Name: "submit_result",
-		Desc: "When all steps are completed without obvious problems, call this tool to end the task and report the final execution results to the user.",
+		Desc: "当所有步骤都完成且没有明显问题时，调用此工具结束任务并向用户报告最终执行结果。",
 		ParamsOneOf: schema.NewParamsOneOfByParams(map[string]*schema.ParameterInfo{
 			"is_success": {
 				Type: schema.Boolean,
@@ -48,9 +48,9 @@ var (
 			"files": {
 				Type: schema.Array,
 				ElemInfo: &schema.ParameterInfo{
-					Desc: `The final file that needs to be delivered to the user (only the files that are successfully generated in the end are included, and Python scripts are not included by default unless explicitly requested by the user).
-Select only the documents that can meet the original needs of users, and put the documents that best meet the needs to the first.
-If there are many documents that meet the original needs of users, the report integrating these documents shall be delivered first, and the number of documents finally submitted shall be controlled within 3 as far as possible.`,
+					Desc: `需要交付给用户的最终文件（仅包括最终成功生成的文件，默认情况下不包括Python脚本，除非用户明确要求）。
+仅选择能够满足用户原始需求的文档，并将最符合需求的文档放在首位。
+如果有许多满足用户原始需求的文件，应首先交付整合这些文件的报告，最终提交的文件数量应尽可能控制在3个以内。`,
 					Type: schema.Object,
 					SubParams: map[string]*schema.ParameterInfo{
 						"path": {

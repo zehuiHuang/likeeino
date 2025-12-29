@@ -19,6 +19,8 @@ package executor
 import (
 	"context"
 	"likeeino/adk/multiagent/integration-excel-agent/utils"
+	"net/http"
+	"time"
 
 	"github.com/cloudwego/eino-ext/components/tool/duckduckgo/v2"
 	"github.com/cloudwego/eino/adk"
@@ -32,14 +34,26 @@ func newWebSearchAgent(ctx context.Context) (adk.Agent, error) {
 		return nil, err
 	}
 
-	searchTool, err := duckduckgo.NewTextSearchTool(ctx, &duckduckgo.Config{})
+	// 创建自定义的 Transport，设置代理
+	transport := &http.Transport{
+		Proxy: http.ProxyFromEnvironment,
+	}
+	// 创建自定义的 HTTP Client
+	httpClient := &http.Client{
+		Transport: transport,
+		Timeout:   30 * time.Second, // 设置超时时间
+	}
+
+	searchTool, err := duckduckgo.NewTextSearchTool(ctx, &duckduckgo.Config{
+		HTTPClient: httpClient,
+	})
 	if err != nil {
 		return nil, err
 	}
 
 	return adk.NewChatModelAgent(ctx, &adk.ChatModelAgentConfig{
 		Name:        "WebSearchAgent",
-		Description: "WebSearchAgent utilizes the ReAct model to analyze input information and accomplish tasks using web search tools.",
+		Description: "WebSearchAgent利用ReAct模型分析输入信息，并使用web搜索工具完成任务。",
 		Model:       cm,
 		ToolsConfig: adk.ToolsConfig{
 			ToolsNodeConfig: compose.ToolsNodeConfig{

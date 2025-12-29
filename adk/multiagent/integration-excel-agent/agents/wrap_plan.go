@@ -50,8 +50,9 @@ func (r *write2PlanMDWrapper) Description(ctx context.Context) string {
 
 func (r *write2PlanMDWrapper) Run(ctx context.Context, input *adk.AgentInput, options ...adk.AgentRunOption) *adk.AsyncIterator[*adk.AgentEvent] {
 	iter := r.a.Run(ctx, input, options...)
+	//构建的类似chan的工具(线程安全):存储数据结构为[]T
 	nIter, gen := adk.NewAsyncIteratorPair[*adk.AgentEvent]()
-
+	//增强的部分,异步 从iter 读到 nIter 并返回
 	go func() {
 		defer func() {
 			if e := recover(); e != nil {

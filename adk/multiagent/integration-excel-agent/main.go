@@ -101,9 +101,9 @@ func main() {
 	//将输入信息、所在路径等信息添加到上下文中,方面后续的使用
 	ctx = params.InitContextParams(ctx)
 	params.AppendContextParams(ctx, map[string]interface{}{
-		params.FilePathSessionKey:            inputFileDir, //输入信息路径
-		params.WorkDirSessionKey:             workdir,      //工作空间
-		params.UserAllPreviewFilesSessionKey: utils.ToJSONString(previews),
+		params.FilePathSessionKey:            inputFileDir,                 //输入信息路径
+		params.WorkDirSessionKey:             workdir,                      //工作空间
+		params.UserAllPreviewFilesSessionKey: utils.ToJSONString(previews), //文件转成对象-》转json
 		params.TaskIDKey:                     uuid,
 	})
 
@@ -152,18 +152,22 @@ func main() {
 
 // 创建代理
 func newExcelAgent(ctx context.Context) (adk.Agent, error) {
+	//本地文件操作接口实现(官方还给出docker等环境的操作实现)
 	operator := &LocalOperator{}
 
+	//规划代理--
 	p, err := planner.NewPlanner(ctx, operator)
 	if err != nil {
 		return nil, err
 	}
 
+	//执行代理--
 	e, err := executor.NewExecutor(ctx, operator)
 	if err != nil {
 		return nil, err
 	}
 
+	//重规划代理--
 	rp, err := replanner.NewReplanner(ctx, operator)
 	if err != nil {
 		return nil, err

@@ -18,20 +18,22 @@ package model
 
 import (
 	"context"
-	"github.com/cloudwego/eino-ext/components/model/deepseek"
-	"log"
-	"os"
-	"strings"
-
 	"github.com/cloudwego/eino-ext/components/model/ark"
+	"github.com/cloudwego/eino-ext/components/model/deepseek"
 	"github.com/cloudwego/eino-ext/components/model/openai"
 	"github.com/cloudwego/eino/components/model"
 	arkModel "github.com/volcengine/volcengine-go-sdk/service/arkruntime/model"
+	"log"
+	"os"
+	"strings"
 )
 
 func NewChatModel() model.ToolCallingChatModel {
 	modelType := strings.ToLower(os.Getenv("MODEL_TYPE"))
 
+	//httpClient := &http.Client{
+	//	Timeout: 60 * time.Second, // 设置超时时间
+	//}
 	if modelType == "deepseek" {
 		cm, err := deepseek.NewChatModel(context.Background(), &deepseek.ChatModelConfig{
 			APIKey: os.Getenv("OPENAI_API_KEY"),

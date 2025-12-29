@@ -68,11 +68,11 @@ func NewChatModel(ctx context.Context, opts ...CreateChatModelOption) (cm model.
 			ByAzure: func() bool {
 				return os.Getenv("OPENAI_BY_AZURE") == "true"
 			}(),
-			BaseURL:     os.Getenv("OPENAI_BASE_URL"),
-			Model:       modelName,
-			MaxTokens:   o.MaxTokens,
-			Temperature: o.Temperature,
-			TopP:        o.TopP,
+			BaseURL:             os.Getenv("OPENAI_BASE_URL"),
+			Model:               modelName,
+			MaxCompletionTokens: o.MaxTokens,
+			Temperature:         o.Temperature,
+			TopP:                o.TopP,
 		}
 		if o.JsonSchema != nil {
 			conf.ResponseFormat = &openai.ChatCompletionResponseFormat{

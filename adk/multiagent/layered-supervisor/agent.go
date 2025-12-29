@@ -40,6 +40,7 @@ func buildSearchAgent(ctx context.Context) (adk.Agent, error) {
 	}
 
 	search := func(ctx context.Context, req *searchReq) (*searchResp, error) {
+		//此处为mock数据,可以替换为真正的搜索
 		return &searchResp{
 			Result: "2024年，美国GDP为29.18万亿美元，纽约州GDP为2.297万亿美元",
 		}, nil
@@ -276,11 +277,13 @@ func buildSupervisor(ctx context.Context) (adk.Agent, error) {
 		Model: m,
 		ToolsConfig: adk.ToolsConfig{
 			ToolsNodeConfig: compose.ToolsNodeConfig{
+				//用于处理 agent 尝试调用不存在工具的情况，提供错误处理和反馈机制
 				UnknownToolsHandler: func(ctx context.Context, name, input string) (string, error) {
 					return fmt.Sprintf("unknown tool: %s", name), nil
 				},
 			},
 		},
+		//用于让主管 agent 在完成任务后明确表示工作流的结束
 		Exit: &adk.ExitTool{},
 	})
 	if err != nil {

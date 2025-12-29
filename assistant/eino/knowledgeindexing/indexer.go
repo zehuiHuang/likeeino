@@ -20,6 +20,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/cloudwego/eino-ext/components/indexer/redis"
@@ -33,10 +34,10 @@ import (
 
 // 初始化时直接创建key为 eino:doc:vector_index 的索引
 func init() {
-	//err := redispkg.Init()
-	//if err != nil {
-	//	log.Fatalf("failed to init redis index: %v", err)
-	//}
+	err := redispkg.Init()
+	if err != nil {
+		log.Fatalf("failed to init redis index: %v", err)
+	}
 }
 
 // newIndexer component initialization function of node 'RedisIndexer' in graph 'KnowledgeIndexing'

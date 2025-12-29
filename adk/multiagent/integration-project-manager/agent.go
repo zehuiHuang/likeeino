@@ -102,7 +102,8 @@ func main() {
 	// Replace it with your own query
 	// When using the following query, researchAgent will interrupt and prompt the user to input the specific research subject via stdin.
 	//query := "please give me a report about advantages of  xxx" //替换成自己的问题
-	query := "使用  eino 框架给我生成一份人机协同的demo案例 " //替换成自己的问题
+	//query := "使用  eino 框架给我生成一份人机协同的demo案例 " //替换成自己的问题
+	query := "请给我一份关于eino优势的报告 " //替换成自己的问题
 	checkpointID := "1"
 
 	// The researchAgent may require users to input information multiple times

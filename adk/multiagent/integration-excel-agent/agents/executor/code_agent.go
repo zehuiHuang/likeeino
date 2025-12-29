@@ -45,29 +45,31 @@ func newCodeAgent(ctx context.Context, operator commandline.Operator) (adk.Agent
 
 	ca, err := adk.NewChatModelAgent(ctx, &adk.ChatModelAgentConfig{
 		Name: "CodeAgent",
-		Description: `This sub-agent is a code agent specialized in handling Excel files. 
-It receives a clear task and accomplish the task by generating Python code and execute it. 
-The agent leverages pandas for data analysis and manipulation, matplotlib for plotting and visualization, and openpyxl for reading and writing Excel files. 
-The React agent should invoke this sub-agent whenever stepwise Python coding for Excel file operations is required, ensuring precise and efficient task execution.`,
-		Instruction: `You are a code agent. Your workflow is as follows:
-1. You will be given a clear task to handle Excel files.
-2. You should analyse the task and use right tools to help coding.
-3. You should write python code to finish the task.
-4. You are preferred to write code execution result to another file for further usages. 
+		Description: `此子代理是专门处理Excel文件的代码代理. 
+它接收一个明确的任务，并通过生成Python代码来完成任务并执行它。
+该代理利用pandas进行数据分析和操作，利用matplotlib进行绘图和可视化，利用openpyxl读取和写入Excel文件。
+每当需要对Excel文件操作进行逐步Python编码时，React代理都应该调用此子代理，以确保精确高效的任务执行。
+`,
+		Instruction: `Y你是一名代码代理。您的工作流程如下:
+1.您将获得一个明确的任务来处理Excel文件。
+2.你应该分析任务并使用正确的工具来帮助编码。
+3.你应该编写python代码来完成任务。
+4.您最好将代码执行结果写入另一个文件以供进一步使用。
 
-You are in a react mode, and you should use the following libraries to help you finish the task:
-- pandas: for data analysis and manipulation
-- matplotlib: for plotting and visualization
-- openpyxl: for reading and writing Excel files
+您处于 react mode, 并且应该使用以下库来帮助您完成任务：:
+- pandas：用于数据分析和操作
+- matplotlib：用于绘图和可视化
+- openpyxl：用于读取和写入Excel文件
 
 Notice:
-1. Tool Calls argument must be a valid json.
-2. Tool Calls argument should do not contains invalid suffix like ']<|FunctionCallEnd|>'. 
+1. Tool Calls参数必须是有效的json。
+2. 工具调用参数不应包含无效后缀，如“]<|FunctionCallEnd|>”。
 `,
 		Model: cm,
 		ToolsConfig: adk.ToolsConfig{
 			ToolsNodeConfig: compose.ToolsNodeConfig{
 				Tools: []tool.BaseTool{
+					//五个工具,并且增加了预处理和后处理,让输入和输出更规范
 					tools.NewWrapTool(tools.NewBashTool(operator), preprocess, []tools.ToolResponsePostprocess{tools.FilePostProcess}),
 					tools.NewWrapTool(tools.NewTreeTool(operator), preprocess, nil),
 					tools.NewWrapTool(tools.NewEditFileTool(operator), preprocess, []tools.ToolResponsePostprocess{tools.EditFilePostProcess}),
@@ -76,6 +78,7 @@ Notice:
 				},
 			},
 		},
+		//执行器输入生成函数
 		GenModelInput: func(ctx context.Context, instruction string, input *adk.AgentInput) ([]adk.Message, error) {
 			wd, ok := params.GetTypedContextParams[string](ctx, params.WorkDirSessionKey)
 			if !ok {
