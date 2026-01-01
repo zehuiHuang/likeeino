@@ -28,9 +28,11 @@ import (
 	"strings"
 )
 
-func NewChatModel() model.ToolCallingChatModel {
+func NewChatModel(tp ...string) model.ToolCallingChatModel {
 	modelType := strings.ToLower(os.Getenv("MODEL_TYPE"))
-
+	if len(tp) > 0 {
+		modelType = tp[0]
+	}
 	//httpClient := &http.Client{
 	//	Timeout: 60 * time.Second, // 设置超时时间
 	//}

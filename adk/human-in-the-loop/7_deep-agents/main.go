@@ -35,34 +35,28 @@ import (
 
 func main() {
 	ctx := context.Background()
-	//模型调用和工具执行的回调日志打印
-	//callbacks.AppendGlobalHandlers(&logger_callback.LoggerCallback{})
-	//创建 Supervisor 模式的agent
-	//增加coze链路
 	traceCloseFn, startSpanFn := trace.AppendCozeLoopCallbackIfConfigured(ctx)
 	defer traceCloseFn(ctx)
-	sv, err := buildFinancialSupervisor(ctx)
+	agent, err := NewDataAnalysisDeepAgent(ctx, newRateLimitedModel())
 	if err != nil {
-		log.Fatalf("build financial supervisor failed: %v", err)
+		log.Fatalf("failed to create deep agent: %v", err)
 	}
 
 	runner := adk.NewRunner(ctx, adk.RunnerConfig{
 		EnableStreaming: true,
-		Agent:           sv,
-		//检查点,作用是中断后,等待用户判定后续操作
+		Agent:           agent,
 		CheckPointStore: store.NewInMemoryStore(),
 	})
 
-	query := "查看我的支票账户余额，然后将500美元从支票账户转入储蓄账户。"
-	//query := "Check my checking account balance, and then transfer $500 from checking to savings account."
+	//query := "Analyze the market trends and provide investment recommendations."
+	query := "分析市场趋势并提供投资建议。"
 
 	fmt.Println("\n========================================")
 	fmt.Println("User Query:", query)
 	fmt.Println("========================================")
 	fmt.Println()
-	//在实际的业务场景中,可以动态生成,若需用户阻断,则需返回生产的CheckPointID,用户判定后将CheckPointID传入
-	ctx, endSpanFn := startSpanFn(ctx, "5_supervisor", query)
-	iter := runner.Query(ctx, query, adk.WithCheckPointID("supervisor-1"))
+	ctx, endSpanFn := startSpanFn(ctx, "7_deep-agents", query)
+	iter := runner.Query(ctx, query, adk.WithCheckPointID("deep-analysis-1"))
 	var lastMessage adk.Message
 	for {
 		lastEvent, interrupted := processEvents(iter)
@@ -72,40 +66,37 @@ func main() {
 
 		interruptCtx := lastEvent.Action.Interrupted.InterruptContexts[0]
 		interruptID := interruptCtx.ID
+		followUpInfo := interruptCtx.Info.(*tool.FollowUpInfo)
 
 		fmt.Println("\n========================================")
-		fmt.Println("APPROVAL REQUIRED")
+		fmt.Println("CLARIFICATION NEEDED")
 		fmt.Println("========================================")
+		fmt.Println("The agent needs more information to proceed:")
+		fmt.Println()
+		for i, q := range followUpInfo.Questions {
+			fmt.Printf("  %d. %s\n", i+1, q)
+		}
+		fmt.Println()
+		fmt.Println("----------------------------------------")
 
-		var apResult *tool.ApprovalResult
-		for {
-			scanner := bufio.NewScanner(os.Stdin)
-			fmt.Print("Approve this transaction? (Y/N): ")
+		scanner := bufio.NewScanner(os.Stdin)
+		var answers []string
+		for i, q := range followUpInfo.Questions {
+			fmt.Printf("Answer for Q%d (%s): ", i+1, truncate(q, 50))
 			scanner.Scan()
-			fmt.Println()
-			nInput := scanner.Text()
-			if strings.ToUpper(nInput) == "Y" {
-				apResult = &tool.ApprovalResult{Approved: true}
-				break
-			} else if strings.ToUpper(nInput) == "N" {
-				fmt.Print("Please provide a reason for denial: ")
-				scanner.Scan()
-				reason := scanner.Text()
-				fmt.Println()
-				apResult = &tool.ApprovalResult{Approved: false, DisapproveReason: &reason}
-				break
-			}
-			fmt.Println("Invalid input, please enter Y or N")
+			answers = append(answers, scanner.Text())
 		}
 
+		followUpInfo.UserAnswer = strings.Join(answers, "\n")
+
 		fmt.Println("\n========================================")
-		fmt.Println("Resuming execution...")
+		fmt.Println("Resuming with your answers...")
 		fmt.Println("========================================")
 		fmt.Println()
 
-		iter, err = runner.ResumeWithParams(ctx, "supervisor-1", &adk.ResumeParams{
+		iter, err = runner.ResumeWithParams(ctx, "deep-analysis-1", &adk.ResumeParams{
 			Targets: map[string]any{
-				interruptID: apResult,
+				interruptID: followUpInfo,
 			},
 		})
 		if err != nil {
@@ -117,7 +108,7 @@ func main() {
 	}
 	endSpanFn(ctx, lastMessage)
 	fmt.Println("\n========================================")
-	fmt.Println("Execution completed")
+	fmt.Println("Analysis completed!")
 	fmt.Println("========================================")
 }
 
@@ -143,6 +134,13 @@ func processEvents(iter *adk.AsyncIterator[*adk.AgentEvent]) (*adk.AgentEvent, b
 		return lastEvent, true
 	}
 	return lastEvent, false
+}
+
+func truncate(s string, maxLen int) string {
+	if len(s) <= maxLen {
+		return s
+	}
+	return s[:maxLen-3] + "..."
 }
 
 func init() {

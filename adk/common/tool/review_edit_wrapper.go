@@ -25,6 +25,8 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+// 人工确认和可编辑
+
 // ReviewEditInfo is presented to the user for editing.
 type ReviewEditInfo struct {
 	ToolName        string
@@ -52,6 +54,7 @@ func (re *ReviewEditInfo) String() string {
 		re.ToolName, re.ArgumentsInJSON)
 }
 
+// 注意:进行人工确认时,需要将ApprovalInfo注册进去,以便进行序列化
 func init() {
 	schema.Register[*ReviewEditInfo]()
 }

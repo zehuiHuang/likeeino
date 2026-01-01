@@ -73,10 +73,11 @@ func getRateLimitDelay() time.Duration {
 func newRateLimitedModel() model.ToolCallingChatModel {
 	delay := getRateLimitDelay()
 	if delay == 0 {
-		return commonModel.NewChatModel()
+		//使用ark模型,deepseek模型进过验证可能会有问题
+		return commonModel.NewChatModel("ark")
 	}
 	return &rateLimitedModel{
-		m:     commonModel.NewChatModel(),
+		m:     commonModel.NewChatModel("ark"),
 		delay: delay,
 	}
 }
@@ -97,11 +98,17 @@ func buildAccountAgent(ctx context.Context) (adk.Agent, error) {
 	checkBalance := func(ctx context.Context, req *balanceReq) (*balanceResp, error) {
 		//mock账号余额
 		balances := map[string]float64{
-			"checking": 5000.00,
-			"savings":  15000.00,
-			"main":     5000.00,
+			"支票账户": 5000.00,
+			"储蓄账户": 15000.00,
+			"主账户":  5000.00,
 		}
+		//balances := map[string]float64{
+		//	"checking": 5000.00,
+		//	"savings":  15000.00,
+		//	"main":     5000.00,
+		//}
 		balance, ok := balances[req.AccountID]
+		fmt.Println("//////////////////账户类型ID:", req.AccountID)
 		if !ok {
 			balance = 1000.00
 		}
@@ -158,6 +165,7 @@ func buildTransactionAgent(ctx context.Context) (adk.Agent, error) {
 	}
 	//构造工具的方法(指定的方法签名)
 	transfer := func(ctx context.Context, req *transferReq) (*transferResp, error) {
+		//mock 转账,在实际业务中可调用api接口并返回数据
 		return &transferResp{
 			TransactionID: "TXN-2025-001234",
 			Status:        "completed",
@@ -169,7 +177,7 @@ func buildTransactionAgent(ctx context.Context) (adk.Agent, error) {
 		}, nil
 	}
 	//创建工具的方法,只需要提供指定的方法签名即可(可以指定入参]出参的结构体,以及覆盖执行逻辑)
-	transferTool, err := utils.InferTool("transfer_funds", "Transfer funds between accounts. This is a sensitive operation that requires user approval.", transfer)
+	transferTool, err := utils.InferTool("transfer_funds", "在账户之间转账。这是一项需要用户批准的敏感操作。", transfer)
 	if err != nil {
 		return nil, err
 	}

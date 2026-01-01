@@ -5,7 +5,8 @@ go 1.25.1
 require (
 	github.com/bytedance/sonic v1.14.2
 	github.com/chromedp/chromedp v0.14.2
-	github.com/cloudwego/eino v0.7.11
+	github.com/cloudwego/eino v0.7.14
+	github.com/cloudwego/eino-examples v0.0.0-20251229084117-f13f4f7555b8
 	github.com/cloudwego/eino-ext/callbacks/apmplus v0.0.1
 	github.com/cloudwego/eino-ext/callbacks/cozeloop v0.1.6
 	github.com/cloudwego/eino-ext/callbacks/langfuse v0.0.0-20250117061805-cd80d1780d76
@@ -33,8 +34,7 @@ require (
 	github.com/json-iterator/go v1.1.12
 	github.com/kaptinlin/jsonrepair v0.2.4
 	github.com/milvus-io/milvus-sdk-go/v2 v2.4.2
-	github.com/redis/go-redis/v9 v9.7.0
-	github.com/sashabaranov/go-openai v1.41.2
+	github.com/redis/go-redis/v9 v9.17.2
 	github.com/stretchr/testify v1.11.1
 	github.com/volcengine/volcengine-go-sdk v1.1.49
 	github.com/xuri/excelize/v2 v2.10.0
@@ -93,7 +93,6 @@ require (
 	github.com/kr/text v0.2.0 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect
 	github.com/matoous/go-nanoid v1.5.1 // indirect
-	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/meguminnnnnnnnn/go-openai v0.1.0 // indirect
 	github.com/milvus-io/milvus-proto/go-api/v2 v2.4.10-0.20240819025435-512e3b98866a // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect

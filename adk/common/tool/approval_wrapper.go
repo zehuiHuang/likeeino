@@ -25,6 +25,8 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+//人工确认
+
 type ApprovalInfo struct {
 	ToolName        string
 	ArgumentsInJSON string
@@ -42,6 +44,7 @@ func (ai *ApprovalInfo) String() string {
 		ai.ToolName, ai.ArgumentsInJSON)
 }
 
+// 注意:进行人工确认时,需要将ApprovalInfo注册进去,以便进行序列化
 func init() {
 	schema.Register[*ApprovalInfo]()
 }
@@ -69,20 +72,30 @@ func (i InvokableApprovableTool) InvokableRun(ctx context.Context, argumentsInJS
 	wasInterrupted, _, storedArguments := compose.GetInterruptState[string](ctx)
 	//初始调用、中断并等待批准
 	if !wasInterrupted { // initial invocation, interrupt and wait for approval
+		toolCallID := compose.GetToolCallID(ctx)
+		if toolCallID == "" {
+			// 如果没有工具调用ID，创建一个默认的
+			toolCallID = fmt.Sprintf("tool_call_%s_%p", toolInfo.Name, &i)
+		}
 		return "", compose.StatefulInterrupt(ctx, &ApprovalInfo{
 			ToolName:        toolInfo.Name,
 			ArgumentsInJSON: argumentsInJSON,
-			ToolCallID:      compose.GetToolCallID(ctx),
+			ToolCallID:      toolCallID,
 		}, argumentsInJSON)
 	}
 
 	isResumeTarget, hasData, data := compose.GetResumeContext[*ApprovalResult](ctx)
 	//中断但未明确恢复，再次中断并等待批准
 	if !isResumeTarget { // was interrupted but not explicitly resumed, reinterrupt and wait for approval again
+		toolCallID := compose.GetToolCallID(ctx)
+		if toolCallID == "" {
+			// 如果没有工具调用ID，创建一个默认的
+			toolCallID = fmt.Sprintf("tool_call_%s_%p", toolInfo.Name, &i)
+		}
 		return "", compose.StatefulInterrupt(ctx, &ApprovalInfo{
 			ToolName:        toolInfo.Name,
 			ArgumentsInJSON: storedArguments,
-			ToolCallID:      compose.GetToolCallID(ctx),
+			ToolCallID:      toolCallID,
 		}, storedArguments)
 	}
 	if !hasData {

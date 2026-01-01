@@ -28,9 +28,12 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+//中断,主动提出澄清问题让用户提供
+
 // FollowUpInfo is the information presented to the user during an interrupt.
 type FollowUpInfo struct {
-	Questions  []string
+	Questions []string
+	//此字段将由用户填充。
 	UserAnswer string // This field will be populated by the user.
 }
 

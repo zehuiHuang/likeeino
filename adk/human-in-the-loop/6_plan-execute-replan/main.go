@@ -19,14 +19,15 @@ package main
 import (
 	"bufio"
 	"context"
+	"encoding/gob"
 	"fmt"
 	"github.com/joho/godotenv"
-	"likeeino/adk/common/trace"
 	"log"
 	"os"
 	"strings"
 
 	"github.com/cloudwego/eino/adk"
+	"github.com/cloudwego/eino/adk/prebuilt/planexecute"
 
 	"likeeino/adk/common/prints"
 	"likeeino/adk/common/store"
@@ -35,35 +36,31 @@ import (
 
 func main() {
 	ctx := context.Background()
-	//模型调用和工具执行的回调日志打印
-	//callbacks.AppendGlobalHandlers(&logger_callback.LoggerCallback{})
-	//创建 Supervisor 模式的agent
-	//增加coze链路
-	traceCloseFn, startSpanFn := trace.AppendCozeLoopCallbackIfConfigured(ctx)
-	defer traceCloseFn(ctx)
-	sv, err := buildFinancialSupervisor(ctx)
+
+	agent, err := NewTravelPlanningAgent(ctx)
 	if err != nil {
-		log.Fatalf("build financial supervisor failed: %v", err)
+		log.Fatalf("failed to create travel planning agent: %v", err)
 	}
 
 	runner := adk.NewRunner(ctx, adk.RunnerConfig{
 		EnableStreaming: true,
-		Agent:           sv,
-		//检查点,作用是中断后,等待用户判定后续操作
+		Agent:           agent,
 		CheckPointStore: store.NewInMemoryStore(),
 	})
 
-	query := "查看我的支票账户余额，然后将500美元从支票账户转入储蓄账户。"
-	//query := "Check my checking account balance, and then transfer $500 from checking to savings account."
+	//query := `Plan a 3-day trip to Tokyo starting from New York on 2025-10-15.
+	//I need to book flights and a hotel. Also recommend some must-see attractions.
+	//Today is 2025-09-01.`
+
+	query := `计划2025年10月15日从New York开始为期3天的Tokyo之旅。我自己需要预订航班和酒店,档次不限要求不限。还推荐一些必看景点。今天是2025-09-01。`
 
 	fmt.Println("\n========================================")
 	fmt.Println("User Query:", query)
 	fmt.Println("========================================")
 	fmt.Println()
-	//在实际的业务场景中,可以动态生成,若需用户阻断,则需返回生产的CheckPointID,用户判定后将CheckPointID传入
-	ctx, endSpanFn := startSpanFn(ctx, "5_supervisor", query)
-	iter := runner.Query(ctx, query, adk.WithCheckPointID("supervisor-1"))
-	var lastMessage adk.Message
+
+	iter := runner.Query(ctx, query, adk.WithCheckPointID("travel-plan-1"))
+
 	for {
 		lastEvent, interrupted := processEvents(iter)
 		if !interrupted {
@@ -72,52 +69,62 @@ func main() {
 
 		interruptCtx := lastEvent.Action.Interrupted.InterruptContexts[0]
 		interruptID := interruptCtx.ID
+		//由出发中断的tool提供的信息
+		reInfo := interruptCtx.Info.(*tool.ReviewEditInfo)
 
 		fmt.Println("\n========================================")
-		fmt.Println("APPROVAL REQUIRED")
+		fmt.Println("REVIEW REQUIRED")
 		fmt.Println("========================================")
+		fmt.Printf("Tool: %s\n", reInfo.ToolName)
+		fmt.Printf("Arguments: %s\n", reInfo.ArgumentsInJSON)
+		fmt.Println("----------------------------------------")
+		fmt.Println("Options:")
+		fmt.Println("  - Type 'ok' to approve as-is")
+		fmt.Println("  - Type 'n' to reject")
+		fmt.Println("  - Or enter modified JSON arguments")
+		fmt.Println("----------------------------------------")
 
-		var apResult *tool.ApprovalResult
-		for {
-			scanner := bufio.NewScanner(os.Stdin)
-			fmt.Print("Approve this transaction? (Y/N): ")
+		scanner := bufio.NewScanner(os.Stdin)
+		fmt.Print("Your choice: ")
+		scanner.Scan()
+		nInput := scanner.Text()
+		fmt.Println()
+
+		result := &tool.ReviewEditResult{}
+		switch strings.ToLower(strings.TrimSpace(nInput)) {
+		case "ok", "yes", "y":
+			result.NoNeedToEdit = true
+		case "n", "no":
+			result.Disapproved = true
+			fmt.Print("Reason for rejection (optional): ")
 			scanner.Scan()
-			fmt.Println()
-			nInput := scanner.Text()
-			if strings.ToUpper(nInput) == "Y" {
-				apResult = &tool.ApprovalResult{Approved: true}
-				break
-			} else if strings.ToUpper(nInput) == "N" {
-				fmt.Print("Please provide a reason for denial: ")
-				scanner.Scan()
-				reason := scanner.Text()
-				fmt.Println()
-				apResult = &tool.ApprovalResult{Approved: false, DisapproveReason: &reason}
-				break
+			reason := scanner.Text()
+			if reason != "" {
+				result.DisapproveReason = &reason
 			}
-			fmt.Println("Invalid input, please enter Y or N")
+		default:
+			result.EditedArgumentsInJSON = &nInput
 		}
+
+		reInfo.ReviewResult = result
 
 		fmt.Println("\n========================================")
 		fmt.Println("Resuming execution...")
 		fmt.Println("========================================")
 		fmt.Println()
 
-		iter, err = runner.ResumeWithParams(ctx, "supervisor-1", &adk.ResumeParams{
+		iter, err = runner.ResumeWithParams(ctx, "travel-plan-1", &adk.ResumeParams{
 			Targets: map[string]any{
-				interruptID: apResult,
+				interruptID: reInfo,
 			},
 		})
 		if err != nil {
 			log.Fatal(err)
 		}
-		if lastEvent.Output != nil {
-			lastMessage, _, err = adk.GetMessage(lastEvent)
-		}
 	}
-	endSpanFn(ctx, lastMessage)
+
 	fmt.Println("\n========================================")
-	fmt.Println("Execution completed")
+	fmt.Println("Travel planning completed!")
 	fmt.Println("========================================")
 }
 
@@ -144,8 +151,11 @@ func processEvents(iter *adk.AsyncIterator[*adk.AgentEvent]) (*adk.AgentEvent, b
 	}
 	return lastEvent, false
 }
-
 func init() {
+	// 注册 gob 类型，以便能够序列化/反序列化 ExecutedStep 类型
+	gob.Register([]planexecute.ExecutedStep{})
+	gob.Register(planexecute.ExecutedStep{})
+
 	// 加载 .env 文件
 	if err := godotenv.Load(); err != nil {
 		log.Printf("Warning: Error loading .env file: %v\n", err)

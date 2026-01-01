@@ -27,6 +27,8 @@ import (
 	"github.com/cloudwego/eino/schema"
 )
 
+//打印在执行流转过程中的信息
+
 func Event(event *adk.AgentEvent) {
 	fmt.Printf("name: %s\npath: %s", event.AgentName, event.RunPath)
 	if event.Output != nil && event.Output.MessageOutput != nil {
@@ -121,7 +123,10 @@ func Event(event *adk.AgentEvent) {
 			for _, ic := range event.Action.Interrupted.InterruptContexts {
 				str, ok := ic.Info.(fmt.Stringer)
 				if ok {
+					//此处会打印某个过中断结构体自定义实现的String()方法
+					fmt.Println("\n-------------------")
 					fmt.Printf("\n%s", str.String())
+					fmt.Println("\n-------------------")
 				} else {
 					fmt.Printf("\n%v", ic.Info)
 				}

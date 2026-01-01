@@ -35,6 +35,8 @@ Supervisor 案例:adk/multiagent/supervisor
 规划器、执行器和重规划器:
 Plan-Execute 案例:adk/multiagent/plan-execute-replan
 
+3、DeepAgent:通过一个“指挥官”智能体（主 Agent）来规划、拆解、委派并监督一系列复杂的任务，
+这些任务最终由专门的子智能体（Sub-Agents）或工具（Tools）执行
 
 
 
@@ -69,3 +71,12 @@ AddLambdaNode、AddRetrieverNode、AddEdge、AddBranch、AddDocumentTransformerN
 4、通过多轮对话,识别用户对话,制定出更符合预期的答案(常适用于咨询、问题收集等场景)
 
 ---------------------------------------------------------------人机协同
+
+
+
+三、执行链路流转原理:
+SupervisorAgent 通过WithDeterministicTransferTo 使子agent完成后自动转让回Supervisor
+Transfer 事件怎么处理的??
+
+
+四:eino架构设计和实现原理

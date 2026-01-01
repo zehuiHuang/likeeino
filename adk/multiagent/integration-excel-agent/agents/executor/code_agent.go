@@ -84,7 +84,7 @@ Notice:
 			if !ok {
 				return nil, fmt.Errorf("work dir not found")
 			}
-
+			//提示词模版 属性填充
 			tpl := prompt.FromMessages(schema.Jinja2,
 				schema.SystemMessage(instruction),
 				schema.UserMessage(`WorkingDirectory: {{ working_dir }}
